@@ -147,7 +147,7 @@ body.asking #ask-back{display:block;width:auto}
   <section aria-labelledby="how-h">
     <h2 id="how-h">How it works</h2>
     <ol>
-      <li>Every few hours Cloud Scheduler asks the service to read the issuers' sites: MECO (power), MCWD (water), DepEd Lapu-Lapu, PAGASA, and the city.</li>
+      <li>Every few hours Cloud Scheduler asks the service to read the issuers' sites: MECO (the power company), MCWD (the Metropolitan Cebu Water District), DepEd (the Department of Education, Lapu-Lapu division), PAGASA (the weather bureau), and the city government.</li>
       <li>Each new post is compiled once by Gemini into a typed event: what, which barangays, from when to when, status, and the source link. Posts that extend or cancel an earlier notice are merged into it.</li>
       <li>Events live in Firestore. This page, the agent, MCP and A2A all read them through the same functions, so every door gives the same answer.</li>
       <li>When there is no official notice, Abiso says so. It never guesses.</li>

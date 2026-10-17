@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Awaitable, Callable, Optional
 
 from fastapi import APIRouter, Header, HTTPException, Request
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from pydantic import BaseModel, Field
 
 from abiso.places import barangays
@@ -35,10 +35,10 @@ WEB = Path(__file__).resolve().parent / "web"
 ASK_PER_10MIN = int(os.environ.get("ABISO_ASK_PER_10MIN", "8"))
 ASK_TIMEOUT_S = 75
 SOURCES = [
-    {"issuer": "MECO (power)", "url": "https://mecomactan.com/"},
-    {"issuer": "MCWD (water)", "url": "https://www.mcwd.gov.ph/"},
-    {"issuer": "DepEd Lapu-Lapu City Division", "url": "https://depedlapulapu.net.ph/"},
-    {"issuer": "PAGASA Visayas", "url": "https://www.pagasa.dost.gov.ph/regional-forecast/visprsd"},
+    {"issuer": "MECO (Mactan Electric Company, power)", "url": "https://mecomactan.com/"},
+    {"issuer": "MCWD (Metropolitan Cebu Water District, water)", "url": "https://www.mcwd.gov.ph/"},
+    {"issuer": "DepEd (Department of Education) Lapu-Lapu City Division", "url": "https://depedlapulapu.net.ph/"},
+    {"issuer": "PAGASA (weather bureau), Visayas", "url": "https://www.pagasa.dost.gov.ph/regional-forecast/visprsd"},
     {"issuer": "Lapu-Lapu City government", "url": "https://lapulapucity.gov.ph/"},
 ]
 
@@ -66,7 +66,14 @@ def make_router(ask: Callable[[str, str], Awaitable[str]],
 
     @r.get("/demo", include_in_schema=False)
     def demo():
-        return FileResponse(WEB / "demo.html", headers={"Cache-Control": "no-cache"})
+        # the video and its captions change together; version both URLs by the files' mtimes so a
+        # browser never pairs a cached caption file with a new video
+        html = (WEB / "demo.html").read_text()
+        for name in ("abiso_demo.mp4", "abiso_demo.vtt", "poster.jpg"):
+            f = WEB / "demo" / name
+            if f.exists():
+                html = html.replace(f"/static/demo/{name}", f"/static/demo/{name}?v={int(f.stat().st_mtime)}")
+        return HTMLResponse(html, headers={"Cache-Control": "no-cache"})
 
     @r.get("/api/meta")
     def meta():
