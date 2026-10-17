@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abiso: Lapu-Lapu City notices</title>
+<meta name="description" content="Official brownout, water, class suspension and weather notices for Lapu-Lapu City, read once from the issuers and turned into events you can check, ask about, and give to any agent.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Inter";src:url(/static/fonts/Inter-latin-var.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(/static/fonts/JetBrainsMono-latin-var.woff2) format("woff2");font-weight:100 800;font-display:swap}
+/* Field-guide ink on paper: one ink, one paper, fine single-weight rules. Illustrations are multiplied onto the paper. */
+:root{--paper:#f5eee6;--card:#faf6f0;--ink:#161514;--soft:#3d3a36;--mute:#77716a;--line:rgba(22,21,20,.22);--hair:rgba(22,21,20,.12);
+  --now:#161514;--fail:#8a2a1c;
+  --serif:"Instrument Serif",Georgia,serif;--sans:"Inter",system-ui,-apple-system,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--soft);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:2px}
+main{max-width:960px;margin:0 auto;padding:36px 16px 80px}
+img.ink{mix-blend-mode:multiply;display:block;pointer-events:none}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+.hero img.ink{width:100%;max-width:420px;justify-self:end}
+.lab{font:500 12px/18px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.mono{font:400 13px/20px var(--mono);color:var(--mute)}
+h1{font:400 96px/.95 var(--serif);color:var(--ink);margin:6px 0 14px;letter-spacing:-.01em}
+h1 i{font-size:.42em;letter-spacing:0;color:var(--mute)}
+h2{font:400 40px/1.1 var(--serif);color:var(--ink);margin:0 0 4px}
+.lede{font-size:19px;line-height:1.5;color:var(--soft);max-width:560px;margin:0 0 14px}
+#status{margin:0 0 30px}
+#status b{color:var(--ink);font-weight:500}
+section{border-top:1px solid var(--line);padding:28px 0;position:relative}
+.sub{margin:0 0 16px;color:var(--mute);font-size:14px}
+form.ask{display:flex;gap:8px}
+input[type=text],select{background:var(--card);color:var(--ink);border:1px solid var(--line);font:400 16px/1.3 var(--sans);padding:12px;border-radius:0;min-width:0}
+input[type=text]{flex:1}
+button{background:var(--ink);color:var(--paper);border:0;font:600 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:0 20px;cursor:pointer}
+button:disabled{opacity:.45;cursor:wait}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.chip{background:transparent;color:var(--soft);border:1px solid var(--line);font:400 13px/1.2 var(--mono);text-transform:none;letter-spacing:0;padding:8px 10px}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+#answer{margin-top:16px;padding:16px 18px;border:1px solid var(--ink);background:var(--card);white-space:pre-wrap;color:var(--ink);display:none;overflow-wrap:anywhere;font-size:17px}
+#answer.on{display:block}
+#answer .mono{display:block;margin-top:10px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line)}
+.seg button{background:transparent;color:var(--soft);font-weight:500;padding:10px 12px;text-transform:none;letter-spacing:0;font-size:13px}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+select{padding:9px 10px;font-size:14px}
+.ev{display:grid;grid-template-columns:96px 1fr;gap:16px;border:1px solid var(--hair);padding:14px 16px;margin:0 0 10px;background:var(--card)}
+.ev img.ink{width:96px;height:72px;object-fit:contain}
+.ev .top{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline;margin-bottom:6px}
+.tag{font:500 11px/16px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--line);color:var(--soft)}
+.tag.now{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.tag.cancelled{border-color:var(--fail);color:var(--fail)}
+.when{color:var(--ink);font-weight:600}
+.ev p{margin:4px 0;color:var(--soft)}
+.ev .areas{color:var(--mute);font-size:14px}
+.ev .src{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font:400 13px/20px var(--mono)}
+.empty{color:var(--mute);padding:18px 0}
+pre{background:var(--card);border:1px solid var(--hair);padding:12px;overflow-x:auto;font:400 13px/1.5 var(--mono);color:var(--soft);margin:8px 0 14px}
+ol{padding-left:20px;margin:0}
+ol li{margin:0 0 8px}
+.deco{position:absolute;right:0;top:18px;width:230px;opacity:.95}
+footer{border-top:1px solid var(--line);padding-top:20px}
+@media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.ink{max-width:220px;justify-self:start;order:-1}.deco{display:none}h1{font-size:72px}}
+@media (max-width:560px){form.ask{flex-direction:column}button.go{padding:14px}.ev{grid-template-columns:1fr}.ev img.ink{width:72px;height:54px}}
+</style>
+</head>
+<body>
+<main>
+  <div class="hero"><div>
+  <div class="lab">Lapu-Lapu City, Cebu, Philippines</div>
+  <h1>Abiso <i>/ah-BEE-so/, notice</i></h1>
+  <p class="lede">Brownouts, water cuts, class suspensions and weather warnings come from different offices, posted in different places. Abiso reads each official notice once, turns it into a dated event for your barangay with a link to the source, and answers in Cebuano, Filipino or English.</p>
+  <p id="status" class="mono">Loading the feed...</p>
+  </div><img class="ink" src="/static/ink/island.webp" alt="" width="420" height="315"></div>
+
+  <section aria-labelledby="ask-h">
+    <h2 id="ask-h">Ask</h2>
+    <p class="sub">A Gemini agent checks the official notices for you. It only answers from them and links every one.</p>
+    <form class="ask" id="ask">
+      <label for="q" class="lab" style="position:absolute;left:-9999px">Your question</label>
+      <input type="text" id="q" name="q" autocomplete="off" maxlength="400" placeholder="Naay brownout sa Basak ugma?">
+      <button class="go" type="submit" id="go">Ask</button>
+    </form>
+    <div class="chips" id="chips">
+      <button type="button" class="chip">Naay water interruption sa Basak karon?</button>
+      <button type="button" class="chip">Naay brownout sa Basak ugma?</button>
+      <button type="button" class="chip">May pasok ba bukas sa Lapu-Lapu?</button>
+      <button type="button" class="chip">Anything we should prepare for in Pusok this week?</button>
+    </div>
+    <div id="answer" role="status" aria-live="polite"></div>
+  </section>
+
+  <section aria-labelledby="list-h">
+    <h2 id="list-h">Notices</h2>
+    <p class="sub">Every card is one event compiled from an official post. Times are Philippine time.</p>
+    <div class="filters">
+      <div class="seg" id="when" role="group" aria-label="When">
+        <button type="button" data-v="upcoming" aria-pressed="true">Now and coming</button>
+        <button type="button" data-v="past" aria-pressed="false">Past</button>
+      </div>
+      <label class="lab" for="area" style="position:absolute;left:-9999px">Barangay</label>
+      <select id="area"><option value="">All barangays</option></select>
+      <div class="seg" id="type" role="group" aria-label="Type">
+        <button type="button" data-v="" aria-pressed="true">All</button>
+        <button type="button" data-v="power" aria-pressed="false">Power</button>
+        <button type="button" data-v="water" aria-pressed="false">Water</button>
+        <button type="button" data-v="class_suspension" aria-pressed="false">Classes</button>
+        <button type="button" data-v="road" aria-pressed="false">Roads</button>
+        <button type="button" data-v="weather" aria-pressed="false">Weather</button>
+      </div>
+    </div>
+    <div id="list"></div>
+  </section>
+
+  <section aria-labelledby="agents-h">
+    <img class="ink deco" src="/static/ink/shark.webp" alt="" width="230" height="172">
+    <h2 id="agents-h">For other agents</h2>
+    <p class="sub">The same events, as tools. No model call, no cost to the caller.</p>
+    <div class="lab">REST</div>
+    <pre id="ex-rest"></pre>
+    <div class="lab">MCP (streamable HTTP): tools disruptions, brownouts, water_interruptions, classes_suspended, road_closures, weather_advisories</div>
+    <pre id="ex-mcp"></pre>
+    <div class="lab">A2A agent card</div>
+    <pre id="ex-a2a"></pre>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <ol>
+      <li>Every few hours Cloud Scheduler asks the service to read the issuers' sites: MECO (power), MCWD (water), DepEd Lapu-Lapu, PAGASA, and the city.</li>
+      <li>Each new post is compiled once by Gemini into a typed event: what, which barangays, from when to when, status, and the source link. Posts that extend or cancel an earlier notice are merged into it.</li>
+      <li>Events live in Firestore. This page, the agent, MCP and A2A all read them through the same functions, so every door gives the same answer.</li>
+      <li>When there is no official notice, Abiso says so. It never guesses.</li>
+    </ol>
+    <p class="sub" id="sources" style="margin-top:14px"></p>
+  </section>
+
+  <footer class="mono">
+    Built with Gemini on Vertex AI, Google ADK, Cloud Run, Cloud Scheduler and Firestore.
+    <a href="https://github.com/CarlKho-Minerva/abiso">Source on GitHub</a>.
+    Not an official government service; always follow the issuer's own post.
+  </footer>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const PH = {timeZone: "Asia/Manila"};
+const fmtDay = d => d.toLocaleDateString("en-PH", {...PH, weekday: "short", day: "numeric", month: "short"});
+const fmtTime = d => d.toLocaleTimeString("en-PH", {...PH, hour: "numeric", minute: "2-digit"});
+const INK = {power: "power", water: "water", class_suspension: "classes", work_suspension: "classes", weather: "weather"};
+const LABEL = {power: "Power", water: "Water", class_suspension: "Classes", work_suspension: "Work", road: "Road", weather: "Weather", other_advisory: "Advisory"};
+const state = {when: "upcoming", type: "", area: ""};
+const session = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random())).slice(0, 12);
+
+function when(e) {
+  if (!e.start) return "Date not announced";
+  const s = new Date(e.start), en = e.end ? new Date(e.end) : null;
+  if (e.all_day) return fmtDay(s) + (en && fmtDay(en) !== fmtDay(s) ? " to " + fmtDay(en) : "") + ", all day";
+  if (!en) return fmtDay(s) + ", from " + fmtTime(s);
+  return fmtDay(s) + ", " + fmtTime(s) + " to " + (fmtDay(en) !== fmtDay(s) ? fmtDay(en) + " " : "") + fmtTime(en);
+}
+
+function card(e) {
+  const tags = [`<span class="tag">${esc(LABEL[e.type] || e.type)}</span>`];
+  if (e.cancelled) tags.push(`<span class="tag cancelled">Cancelled</span>`);
+  else if (e.ongoing) tags.push(`<span class="tag now">Happening now</span>`);
+  else tags.push(`<span class="tag">${esc(e.status)}</span>`);
+  const links = (e.source_links || []).map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener">Official post${e.source_links.length > 1 ? " " + (i + 1) : ""}</a>`).join("");
+  const pic = INK[e.type] ? `<img class="ink" src="/static/ink/${INK[e.type]}.webp" alt="">` : "<span></span>";
+  return `<article class="ev">${pic}<div>
+    <div class="top">${tags.join("")}<span class="when">${esc(when(e))}</span></div>
+    <p>${esc(e.summary)}</p>
+    <p class="areas">${esc(e.areas.join(" / "))}</p>
+    <div class="src">${links || '<span class="mono">no source link</span>'}<span class="mono">compiled by ${esc(e.model)}, confidence ${Number(e.confidence).toFixed(2)}</span></div>
+  </div></article>`;
+}
+
+async function loadList() {
+  const p = new URLSearchParams({when: state.when, limit: 60});
+  if (state.type) p.set("type", state.type);
+  if (state.area) p.set("area", state.area);
+  $("#list").innerHTML = '<p class="empty">Loading...</p>';
+  try {
+    const r = await fetch("/api/events?" + p);
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    $("#list").innerHTML = d.events.length ? d.events.map(card).join("") +
+      (d.count > d.events.length ? `<p class="mono">Showing ${d.events.length} of ${d.count}.</p>` : "")
+      : `<p class="empty">No official notice found${state.area ? " for " + esc(state.area) : ""}${state.when === "upcoming" ? " for now or the coming days" : ""}. That is not proof nothing is happening; check the issuer's page.</p>`;
+  } catch (err) {
+    $("#list").innerHTML = `<p class="empty">Could not load the notices (${esc(err.message)}). Reload to try again.</p>`;
+  }
+}
+
+async function loadMeta() {
+  try {
+    const m = await (await fetch("/api/meta")).json();
+    const u = m.updated_at ? new Date(m.updated_at) : null;
+    $("#status").innerHTML = `Feed updated <b>${u ? fmtDay(u) + " " + fmtTime(u) : "unknown"}</b> PH time. <b>${m.n_events}</b> events from <b>${m.n_posts}</b> official posts, <b>${m.n_upcoming}</b> now or coming.`;
+    for (const b of m.barangays) $("#area").insertAdjacentHTML("beforeend", `<option>${esc(b)}</option>`);
+    $("#sources").innerHTML = "Sources: " + m.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.issuer)}</a>`).join(", ") + ".";
+  } catch (err) {
+    $("#status").textContent = "Could not load the feed status.";
+  }
+}
+
+function linkify(text) {
+  return esc(text).replace(/https?:\/\/[^\s<)]+/g, u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+}
+
+async function ask(q) {
+  q = q.trim();
+  if (!q) return;
+  $("#q").value = q;
+  $("#go").disabled = true;
+  const a = $("#answer");
+  a.className = "on";
+  a.innerHTML = '<span class="mono">Asking the power, water, classes, roads and weather specialists...</span>';
+  try {
+    const r = await fetch("/api/ask", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({q, session})});
+    const d = await r.json();
+    a.innerHTML = linkify(d.answer || d.error || "No answer.") + (d.ms ? `<span class="mono">${(d.ms / 1000).toFixed(1)} s, Gemini via Google ADK</span>` : "");
+  } catch (err) {
+    a.textContent = "Could not reach the agent. The list below is still current.";
+  } finally {
+    $("#go").disabled = false;
+  }
+}
+
+function seg(id, key) {
+  $(id).addEventListener("click", ev => {
+    const b = ev.target.closest("button");
+    if (!b) return;
+    for (const x of $(id).querySelectorAll("button")) x.setAttribute("aria-pressed", x === b);
+    state[key] = b.dataset.v;
+    loadList();
+  });
+}
+
+$("#ask").addEventListener("submit", ev => { ev.preventDefault(); ask($("#q").value); });
+$("#chips").addEventListener("click", ev => { const b = ev.target.closest(".chip"); if (b) ask(b.textContent); });
+$("#area").addEventListener("change", ev => { state.area = ev.target.value; loadList(); });
+seg("#when", "when");
+seg("#type", "type");
+const o = location.origin;
+$("#ex-rest").textContent = `curl "${o}/api/events?area=Basak&type=water"`;
+$("#ex-mcp").textContent = `${o}/mcp/`;
+$("#ex-a2a").textContent = `${o}/a2a/.well-known/agent-card.json`;
+loadMeta();
+loadList();
+</script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+{
+ "backend": "gemma",
+ "model": "gemma-4-31b-it",
+ "run_at": "2026-10-03T19:09:39.051483-07:00",
+ "n_calls": 4,
+ "total_cost_usd": 0,
+ "results": [
+  {
+   "post_id": "smoke-1",
+   "expected": "class_suspension, city-wide, all_day 2026-10-04",
+   "events": [
+    {
+     "event_id": "ev_a875bd0bee46aa31",
+     "type": "class_suspension",
+     "status": "scheduled",
+     "areas": [],
+     "start": "2026-10-04T00:00:00+08:00",
+     "end": null,
+     "all_day": true,
+     "summary": "Classes at all levels, public and private, are suspended throughout Lapu-Lapu City tomorrow due to Typhoon Paeng.",
+     "source_post_ids": [
+      "smoke-1"
+     ],
+     "confidence": 1.0,
+     "model": "gemma-4-31b-it"
+    }
+   ],
+   "used_images": false,
+   "calls": [
+    {
+     "model": "gemma-4-31b-it",
+     "input_tokens": 1035,
+     "output_tokens": 132,
+     "latency_s": 3.17,
+     "usage": {
+      "prompt_tokens": 1035,
+      "total_tokens": 1167,
+      "completion_tokens": 132,
+      "prompt_tokens_details": null
+     }
+    }
+   ]
+  },
+  {
+   "post_id": "smoke-2",
+   "expected": "2 power events 2026-10-06: Pusok 08-17, Marigondon 13-16 (image only)",
+   "events": [
+    {
+     "event_id": "ev_c1b93856debadeb1",
+     "type": "power",
+     "status": "scheduled",
+     "areas": [
+      {
+       "barangay": "Pusok",
+       "detail": "portions of Brgy. Pusok; Feeder 7, M.L. Quezon Hi-way"
+      }
+     ],
+     "start": "2026-10-06T08:00:00+08:00",
+     "end": "2026-10-06T17:00:00+08:00",
+     "all_day": false,
+     "summary": "Scheduled power interruption in portions of Brgy. Pusok due to line maintenance.",
+     "source_post_ids": [
+      "smoke-2"
+     ],
+     "confidence": 1.0,
+     "model": "gemma-4-31b-it"
+    },
+    {
+     "event_id": "ev_29abb681193c6514",
+     "type": "power",
+     "status": "scheduled",
+     "areas": [
+      {
+       "barangay": "Marigondon",
+       "detail": "Brgy. Marigondon; Sitio Ibabao ug Sitio Lawis"
+      }
+     ],
+     "start": "2026-10-06T13:00:00+08:00",
+     "end": "2026-10-06T16:00:00+08:00",
+     "all_day": false,
+     "summary": "Scheduled power interruption in Sitio Ibabao and Sitio Lawis, Brgy. Marigondon due to line maintenance.",
+     "source_post_ids": [
+      "smoke-2"
+     ],
+     "confidence": 1.0,
+     "model": "gemma-4-31b-it"
+    }
+   ],
+   "used_images": true,
+   "calls": [
+    {
+     "model": "gemma-4-31b-it",
+     "input_tokens": 1276,
+     "output_tokens": 366,
+     "latency_s": 7.67,
+     "usage": {
+      "prompt_tokens": 1276,
+      "total_tokens": 1642,
+      "completion_tokens": 366,
+      "prompt_tokens_details": null
+     }
+    }
+   ]
+  },
+  {
+   "post_id": "smoke-3",
+   "expected": "not_disruption",
+   "events": [
+    {
+     "event_id": "ev_656aa55f3f0bcb3b",
+     "type": "not_disruption",
+     "status": "scheduled",
+     "areas": [],
+     "start": null,
+     "end": null,
+     "all_day": false,
+     "summary": "Greeting for the Founding Anniversary of Barangay Basak.",
+     "source_post_ids": [
+      "smoke-3"
+     ],
+     "confidence": 1.0,
+     "model": "gemma-4-31b-it"
+    }
+   ],
+   "used_images": false,
+   "calls": [
+    {
+     "model": "gemma-4-31b-it",
+     "input_tokens": 1006,
+     "output_tokens": 92,
+     "latency_s": 1.81,
+     "usage": {
+      "prompt_tokens": 1006,
+      "total_tokens": 1098,
+      "completion_tokens": 92,
+      "prompt_tokens_details": null
+     }
+    }
+   ]
+  },
+  {
+   "post_id": "smoke-4",
+   "expected": "power 2026-10-06 08:30-17:00, Pusok (+ Cordova as written)",
+   "events": [
+    {
+     "event_id": "ev_97592eb5413a38ce",
+     "type": "power",
+     "status": "scheduled",
+     "areas": [
+      {
+       "barangay": "Pusok",
+       "detail": "portions of Pusok (Feeder 7); Feeder 7"
+      },
+      {
+       "barangay": null,
+       "detail": "Ibabao, Cordova"
+      }
+     ],
+     "start": "2026-10-06T08:30:00+08:00",
+     "end": "2026-10-06T17:00:00+08:00",
+     "all_day": false,
+     "summary": "Scheduled power interruption in portions of Pusok and Ibabao, Cordova on October 6, 2026, from 8:30 AM to 5:00 PM due to line maintenance.",
+     "source_post_ids": [
+      "smoke-4"
+     ],
+     "confidence": 1.0,
+     "model": "gemma-4-31b-it"
+    }
+   ],
+   "used_images": false,
+   "calls": [
+    {
+     "model": "gemma-4-31b-it",
+     "input_tokens": 1056,
+     "output_tokens": 233,
+     "latency_s": 4.7,
+     "usage": {
+      "prompt_tokens": 1056,
+      "total_tokens": 1289,
+      "completion_tokens": 233,
+      "prompt_tokens_details": null
+     }
+    }
+   ]
+  }
+ ],
+ "reconciled": {
+  "events": [
+   {
+    "event_id": "ev_656aa55f3f0bcb3b",
+    "type": "not_disruption",
+    "status": "scheduled",
+    "areas": [],
+    "start": null,
+    "end": null,
+    "all_day": false,
+    "summary": "Greeting for the Founding Anniversary of Barangay Basak.",
+    "source_post_ids": [
+     "smoke-3"
+    ],
+    "confidence": 1.0,
+    "model": "gemma-4-31b-it"
+   },
+   {
+    "event_id": "ev_c1b93856debadeb1",
+    "type": "power",
+    "status": "scheduled",
+    "areas": [
+     {
+      "barangay": "Pusok",
+      "detail": "portions of Brgy. Pusok; Feeder 7, M.L. Quezon Hi-way"
+     },
+     {
+      "barangay": "Pusok",
+      "detail": "portions of Pusok (Feeder 7); Feeder 7"
+     },
+     {
+      "barangay": null,
+      "detail": "Ibabao, Cordova"
+     }
+    ],
+    "start": "2026-10-06T08:00:00+08:00",
+    "end": "2026-10-06T17:00:00+08:00",
+    "all_day": false,
+    "summary": "Scheduled power interruption in portions of Pusok and Ibabao, Cordova on October 6, 2026, from 8:30 AM to 5:00 PM due to line maintenance.",
+    "source_post_ids": [
+     "smoke-2",
+     "smoke-4"
+    ],
+    "confidence": 1.0,
+    "model": "gemma-4-31b-it"
+   },
+   {
+    "event_id": "ev_29abb681193c6514",
+    "type": "power",
+    "status": "scheduled",
+    "areas": [
+     {
+      "barangay": "Marigondon",
+      "detail": "Brgy. Marigondon; Sitio Ibabao ug Sitio Lawis"
+     }
+    ],
+    "start": "2026-10-06T13:00:00+08:00",
+    "end": "2026-10-06T16:00:00+08:00",
+    "all_day": false,
+    "summary": "Scheduled power interruption in Sitio Ibabao and Sitio Lawis, Brgy. Marigondon due to line maintenance.",
+    "source_post_ids": [
+     "smoke-2"
+    ],
+    "confidence": 1.0,
+    "model": "gemma-4-31b-it"
+   },
+   {
+    "event_id": "ev_a875bd0bee46aa31",
+    "type": "class_suspension",
+    "status": "scheduled",
+    "areas": [],
+    "start": "2026-10-04T00:00:00+08:00",
+    "end": null,
+    "all_day": true,
+    "summary": "Classes at all levels, public and private, are suspended throughout Lapu-Lapu City tomorrow due to Typhoon Paeng.",
+    "source_post_ids": [
+     "smoke-1"
+    ],
+    "confidence": 1.0,
+    "model": "gemma-4-31b-it"
+   }
+  ],
+  "conflicts": [
+   {
+    "event_id": "ev_c1b93856debadeb1",
+    "type": "power",
+    "field": "start",
+    "claims": [
+     {
+      "issuer": "LLCPIO",
+      "post_id": "smoke-2",
+      "value": "2026-10-06T08:00:00+08:00"
+     },
+     {
+      "issuer": "MECO",
+      "post_id": "smoke-4",
+      "value": "2026-10-06T08:30:00+08:00"
+     }
+    ]
+   }
+  ]
+ }
+}

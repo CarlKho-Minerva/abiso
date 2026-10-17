@@ -1,0 +1,119 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.439
+In Lapu-Lapu City, Cebu, the notices a family needs come from different offices.
+
+00:00:05.439 --> 00:00:08.906
+MECO posts brownouts, often as images with no text.
+
+00:00:08.906 --> 00:00:11.489
+MCWD posts water cuts on its own site.
+
+00:00:11.489 --> 00:00:14.345
+DepEd and the city post class suspensions.
+
+00:00:14.345 --> 00:00:18.832
+Miss one, and you lose a day of water, or the food in your fridge.
+
+00:00:18.832 --> 00:00:26.650
+Abiso reads every official notice once, and turns it into an event you can check, ask about, and hand to any agent.
+
+00:00:27.167 --> 00:00:30.436
+This is the live prototype, running on Cloud Run.
+
+00:00:30.436 --> 00:00:35.107
+The feed holds 338 disruption events compiled from 201 official posts.
+
+00:00:35.107 --> 00:00:43.048
+Right now, 4 notices are in effect, including an MCWD water interruption in Barangay Basak, for a mainline leak repair.
+
+00:00:43.048 --> 00:00:48.987
+Every card links to the official post it came from, and names the model that compiled it.
+
+00:00:49.733 --> 00:00:51.735
+Most people here do not search.
+
+00:00:51.735 --> 00:00:52.316
+They ask.
+
+00:00:52.316 --> 00:00:54.446
+So here is a question in Cebuano:
+
+00:00:54.446 --> 00:00:57.610
+is there a water interruption in Basak right now?
+
+00:00:57.610 --> 00:01:06.778
+A Gemini agent, built with Google's Agent Development Kit, hands the question to its water specialist, which can only read the stored notices.
+
+00:01:06.778 --> 00:01:10.393
+The answer comes back in Cebuano, with the link to MCWD.
+
+00:01:15.443 --> 00:01:16.423
+Now in Filipino:
+
+00:01:16.423 --> 00:01:18.320
+are classes suspended tomorrow?
+
+00:01:18.320 --> 00:01:21.748
+There is no official notice, so Abiso says exactly that.
+
+00:01:21.748 --> 00:01:26.583
+It never guesses, because a wrong answer about classes is worse than no answer.
+
+00:01:37.277 --> 00:01:41.555
+A broader question, about Pusok this week, goes to all five specialists:
+
+00:01:41.555 --> 00:01:43.992
+power, water, classes, roads and weather.
+
+00:01:43.992 --> 00:01:48.687
+The coordinator merges what they found into one short answer for that barangay.
+
+00:02:07.657 --> 00:02:09.556
+The same events can be browsed.
+
+00:02:09.556 --> 00:02:13.111
+Here are past brownouts in Basak, each from a MECO notice.
+
+00:02:13.111 --> 00:02:15.501
+Many of those notices were only images.
+
+00:02:15.501 --> 00:02:21.997
+Gemini read each image once, when the post was compiled, so answering questions later costs nothing extra.
+
+00:02:23.297 --> 00:02:27.233
+Other agents get the same answers, with no model call at all.
+
+00:02:27.233 --> 00:02:34.591
+The REST API returns the events as JSON, and the same functions are exposed as MCP tools and as an A2A agent card.
+
+00:02:34.591 --> 00:02:38.657
+Any assistant can ask Abiso, instead of guessing from old news.
+
+00:02:39.163 --> 00:02:43.359
+Under the hood, Cloud Scheduler calls the service every three hours.
+
+00:02:43.359 --> 00:02:54.588
+It captures new posts from MECO, MCWD, DepEd and PAGASA, compiles only the new ones with Gemini on Vertex AI, merges extensions and cancellations, and stores the result in Firestore.
+
+00:02:54.588 --> 00:03:00.573
+The first refresh captured forty-seven posts and compiled thirty-three new ones, for eight cents.
+
+00:03:01.097 --> 00:03:04.725
+We measured it on fifty test posts, locked before any model saw them.
+
+00:03:04.725 --> 00:03:13.400
+Gemini got the type of disruption right every time, the start time within an hour ninety-two percent of the time, and the barangays with ninety-four percent overlap.
+
+00:03:13.400 --> 00:03:15.977
+Status is still the weakest field, and we say so.
+
+00:03:18.297 --> 00:03:18.740
+Abiso.
+
+00:03:18.740 --> 00:03:23.915
+Official notices for Lapu-Lapu City, compiled once, answered anywhere.
+
+00:03:23.915 --> 00:03:27.537
+It is live now, and the code is public on GitHub.
+

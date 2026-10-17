@@ -1,0 +1,28 @@
+[project]
+name = "abiso"
+version = "0.1.0"
+description = "Official Lapu-Lapu City notices, compiled once into typed, sourced events for calendars, Messenger and agents."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.141.1",
+    "google-adk[a2a]>=2.11",
+    "google-api-python-client>=2.201.0",
+    "google-auth-oauthlib>=1.5.0",
+    "google-cloud-firestore>=2.20",
+    "google-genai>=2.28.0",
+    "httpx>=0.28.1",
+    "matplotlib>=3.11.2",
+    "mcp>=2.3",
+    "numpy>=2.5.3",
+    "pydantic>=2",
+]
+
+[dependency-groups]
+dev = [
+    "pillow>=12.3.0",
+    "pytest>=8",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+filterwarnings = ["ignore:\\[EXPERIMENTAL\\]:UserWarning"]

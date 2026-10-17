@@ -1,0 +1,236 @@
+{
+ "n_posts": 50,
+ "n_boot": 10000,
+ "seed": 20261003,
+ "ci_method": "percentile bootstrap over posts, paired across systems",
+ "systems": {
+  "gemini_prompt": {
+   "n_missing": 0,
+   "missing_post_ids": [],
+   "fields": {
+    "type": {
+     "n": 50,
+     "point": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "barangays_exact": {
+     "n": 36,
+     "point": 0.7222222222222222,
+     "ci95": [
+      0.5833333333333334,
+      0.8611111111111112
+     ]
+    },
+    "barangays_jaccard": {
+     "n": 36,
+     "point": 0.9432870370370369,
+     "ci95": [
+      0.9085648148148149,
+      0.9756944444444444
+     ]
+    },
+    "start_exact": {
+     "n": 36,
+     "point": 0.8611111111111112,
+     "ci95": [
+      0.75,
+      0.9722222222222222
+     ]
+    },
+    "start_1h": {
+     "n": 36,
+     "point": 0.9166666666666666,
+     "ci95": [
+      0.8055555555555556,
+      1.0
+     ]
+    },
+    "end_exact": {
+     "n": 36,
+     "point": 0.9444444444444444,
+     "ci95": [
+      0.8611111111111112,
+      1.0
+     ]
+    },
+    "end_1h": {
+     "n": 36,
+     "point": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "status": {
+     "n": 36,
+     "point": 0.6944444444444444,
+     "ci95": [
+      0.5277777777777778,
+      0.8333333333333334
+     ]
+    }
+   }
+  },
+  "gemma_prompt": {
+   "n_missing": 8,
+   "missing_post_ids": [
+    "mcwd:07bfd81ae656372e",
+    "meco:wp:11711",
+    "meco:wp:11735",
+    "meco:wp:11751",
+    "meco:wp:11771",
+    "meco:wp:11800",
+    "meco:wp:11883",
+    "meco:wp:11968"
+   ],
+   "fields": {
+    "type": {
+     "n": 50,
+     "point": 0.84,
+     "ci95": [
+      0.74,
+      0.94
+     ]
+    },
+    "barangays_exact": {
+     "n": 36,
+     "point": 0.6666666666666666,
+     "ci95": [
+      0.5,
+      0.8055555555555556
+     ]
+    },
+    "barangays_jaccard": {
+     "n": 36,
+     "point": 0.6990740740740741,
+     "ci95": [
+      0.5509259259259259,
+      0.8333333333333334
+     ]
+    },
+    "start_exact": {
+     "n": 36,
+     "point": 0.6666666666666666,
+     "ci95": [
+      0.5,
+      0.8055555555555556
+     ]
+    },
+    "start_1h": {
+     "n": 36,
+     "point": 0.6666666666666666,
+     "ci95": [
+      0.5,
+      0.8055555555555556
+     ]
+    },
+    "end_exact": {
+     "n": 36,
+     "point": 0.6944444444444444,
+     "ci95": [
+      0.5277777777777778,
+      0.8333333333333334
+     ]
+    },
+    "end_1h": {
+     "n": 36,
+     "point": 0.6944444444444444,
+     "ci95": [
+      0.5277777777777778,
+      0.8333333333333334
+     ]
+    },
+    "status": {
+     "n": 36,
+     "point": 0.6666666666666666,
+     "ci95": [
+      0.5,
+      0.8055555555555556
+     ]
+    }
+   }
+  }
+ },
+ "paired_differences": {
+  "gemini_prompt - gemma_prompt": {
+   "type": {
+    "n": 50,
+    "point": 0.16000000000000003,
+    "ci95": [
+     0.06000000000000005,
+     0.26
+    ],
+    "excludes_zero": true
+   },
+   "barangays_exact": {
+    "n": 36,
+    "point": 0.05555555555555558,
+    "ci95": [
+     -0.13888888888888884,
+     0.25
+    ],
+    "excludes_zero": false
+   },
+   "barangays_jaccard": {
+    "n": 36,
+    "point": 0.2442129629629628,
+    "ci95": [
+     0.11342592592592582,
+     0.3877314814814814
+    ],
+    "excludes_zero": true
+   },
+   "start_exact": {
+    "n": 36,
+    "point": 0.19444444444444453,
+    "ci95": [
+     0.05555555555555558,
+     0.33333333333333337
+    ],
+    "excludes_zero": true
+   },
+   "start_1h": {
+    "n": 36,
+    "point": 0.25,
+    "ci95": [
+     0.11111111111111105,
+     0.38888888888888884
+    ],
+    "excludes_zero": true
+   },
+   "end_exact": {
+    "n": 36,
+    "point": 0.25,
+    "ci95": [
+     0.11111111111111105,
+     0.38888888888888884
+    ],
+    "excludes_zero": true
+   },
+   "end_1h": {
+    "n": 36,
+    "point": 0.3055555555555556,
+    "ci95": [
+     0.16666666666666663,
+     0.4722222222222222
+    ],
+    "excludes_zero": true
+   },
+   "status": {
+    "n": 36,
+    "point": 0.02777777777777779,
+    "ci95": [
+     -0.16666666666666674,
+     0.2222222222222222
+    ],
+    "excludes_zero": false
+   }
+  }
+ },
+ "note": "n=50 gives 95% CIs of roughly +-13 points on a proportion near 0.7. Do not read a difference from overlapping or non-overlapping per-system CIs; use paired_differences. A difference whose CI excludes zero can still be too small to matter for a resident; judge that separately.",
+ "split": "test",
+ "split_sha256": "b4d56d8f68c73de1a76e174f12e8436e3e2ab0bfaf9ab8138238261c171981fd"
+}

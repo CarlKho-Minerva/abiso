@@ -1,0 +1,596 @@
+{
+  "question": "Cost to compile 1,000 city posts into events",
+  "computed_at": "2026-10-04T02:21:34.254592+00:00",
+  "workload": {
+    "posts": 20,
+    "synthetic": true,
+    "with_image": 6,
+    "issuers": {
+      "city": 4,
+      "power (MECO)": 4,
+      "water (MCWD)": 4,
+      "deped": 4,
+      "pagasa": 4
+    },
+    "mix_assumption": "equal weights; real posting volume per issuer not yet counted",
+    "languages": "Cebuano, Taglish, English",
+    "path": "cost/samples/",
+    "note": "SYNTHETIC posts mirroring the compile task; token counts must be re-measured on real posts"
+  },
+  "rates": {
+    "gemini_3_8_flash_input": {
+      "value": 0.75,
+      "unit": "USD per 1M input tokens (text/image)",
+      "as_of": "2026-10-01",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "source_quality": "primary",
+      "note": "Introductory price through 2026-12-31; $1.50 from 2027-01-01."
+    },
+    "gemini_3_8_flash_output": {
+      "value": 3.75,
+      "unit": "USD per 1M output tokens incl. thinking",
+      "as_of": "2026-10-01",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "source_quality": "primary",
+      "note": "Introductory price through 2026-12-31; $7.50 from 2027-01-01."
+    },
+    "gemini_3_8_flash_input_2027": {
+      "value": 1.5,
+      "unit": "USD per 1M input tokens",
+      "as_of": "2027-01-01",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "source_quality": "primary",
+      "note": ""
+    },
+    "gemini_3_8_flash_output_2027": {
+      "value": 7.5,
+      "unit": "USD per 1M output tokens incl. thinking",
+      "as_of": "2027-01-01",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "source_quality": "primary",
+      "note": ""
+    },
+    "gemini_batch_discount": {
+      "value": 0.5,
+      "unit": "fraction of standard price",
+      "as_of": "2026-10-01",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "source_quality": "primary",
+      "note": "Batch tier: $0.375 in / $1.875 out through 2026-12-31."
+    },
+    "meralco_residential": {
+      "value": 14.7424,
+      "unit": "PHP per kWh (typical 200 kWh household, all-in)",
+      "as_of": "2026-09",
+      "source": "https://company.meralco.com.ph/news-and-advisories/lower-rates-september-2026",
+      "source_quality": "primary",
+      "note": "September 2026 announcement (published 2026-09-11). October 2026 not yet announced on 2026-10-03."
+    },
+    "meco_residential": {
+      "value": 13.4933,
+      "unit": "PHP per kWh (residential average, all-in)",
+      "as_of": "2026-07",
+      "source": "https://gosolarph.com/guides/electricity-rates-by-utility-philippines/",
+      "source_quality": "secondary",
+      "note": "Secondary aggregator quoting MECO's July 2026 rate card; no newer figure found."
+    },
+    "pge_etouc_winter_offpeak": {
+      "value": 0.36757,
+      "unit": "USD per kWh (E-TOU-C winter off-peak, bundled)",
+      "as_of": "2026-06-01 tariff; winter season from 2026-10-01",
+      "source": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_SCHEDS_E-TOU-C.pdf",
+      "source_quality": "primary",
+      "note": "Headline PG&E rate: batch compile runs overnight. Bundled PG&E; CleanPowerSF customers differ."
+    },
+    "pge_etouc_winter_peak": {
+      "value": 0.39757,
+      "unit": "USD per kWh (E-TOU-C winter peak 4-9 pm)",
+      "as_of": "2026-06-01 tariff",
+      "source": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_SCHEDS_E-TOU-C.pdf",
+      "source_quality": "primary",
+      "note": ""
+    },
+    "pge_e1_tier2": {
+      "value": 0.40702,
+      "unit": "USD per kWh (E-1 above baseline)",
+      "as_of": "2026-06-01 tariff",
+      "source": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_SCHEDS_E-1.pdf",
+      "source_quality": "primary",
+      "note": ""
+    },
+    "usd_php": {
+      "value": 62.535,
+      "unit": "PHP per USD (close)",
+      "as_of": "2026-10-02",
+      "source": "https://tribune.net.ph/2026/10/02/stocks-slide-for-five-days-straight-peso-strengthens",
+      "source_quality": "secondary",
+      "note": "BSP statistics site was down on 2026-10-03; news report of the day's close."
+    }
+  },
+  "assumptions": {
+    "platform_w": {
+      "value": 100,
+      "unit": "W, non-GPU system draw (CPU, board, RAM, fans, drives) while serving",
+      "as_of": "assumption",
+      "source": "",
+      "source_quality": "assumption",
+      "note": "Not measured; no wall meter on the PC. Attributed in the same share as the GPU."
+    },
+    "psu_efficiency": {
+      "value": 0.9,
+      "unit": "fraction (DC out / AC in)",
+      "as_of": "assumption",
+      "source": "https://en.wikipedia.org/wiki/80_Plus",
+      "source_quality": "assumption (spec from a secondary source)",
+      "note": "80 PLUS Gold: 87/90/87% at 20/50/100% load, 115 V (secondary: Wikipedia certification table). PSU model not checked."
+    },
+    "mac_package_w_low": {
+      "value": 70.6,
+      "unit": "W, M5 Max package average under combined CPU+GPU stress",
+      "as_of": "2026",
+      "source": "https://www.notebookcheck.net/Apple-s-fastest-laptop-starts-to-show-its-age-Apple-MacBook-Pro-16-2026-M5-Max-Review.1250821.0.html",
+      "source_quality": "secondary",
+      "note": "Notebookcheck MBP 16 M5 Max review (seen via search snippet; page 403). Not an LLM workload."
+    },
+    "mac_package_w_high": {
+      "value": 114.4,
+      "unit": "W, M5 Max package peak in the same test",
+      "as_of": "2026",
+      "source": "https://www.notebookcheck.net/Apple-s-fastest-laptop-starts-to-show-its-age-Apple-MacBook-Pro-16-2026-M5-Max-Review.1250821.0.html",
+      "source_quality": "secondary",
+      "note": ""
+    },
+    "mac_prefill_tps": {
+      "value": 168,
+      "unit": "tokens/s prompt processing, Gemma 4 31B Q4_K_M, M5 Max 128 GB (Ollama/llama.cpp)",
+      "as_of": "2026-04-06",
+      "source": "https://github.com/ollama/ollama/issues/15368",
+      "source_quality": "secondary",
+      "note": "User report."
+    },
+    "mac_decode_tps": {
+      "value": 15,
+      "unit": "tokens/s generation, same report",
+      "as_of": "2026-04-06",
+      "source": "https://github.com/ollama/ollama/issues/15368",
+      "source_quality": "secondary",
+      "note": "A second report says 21 tok/s (X post); 15 used as the slower, better-documented figure."
+    },
+    "mac_adapter_efficiency": {
+      "value": 0.9,
+      "unit": "fraction",
+      "as_of": "assumption",
+      "source": "",
+      "source_quality": "assumption",
+      "note": "Charger and board losses; not measured."
+    }
+  },
+  "gemini": {
+    "model": "gemini-3.8-flash",
+    "input_tokens_per_post": {
+      "mean": 960.85,
+      "sd": 475.4496237634878,
+      "min": 602,
+      "max": 1723,
+      "n": 20,
+      "source": "countTokens on all 20 samples (free endpoint); matches usage.promptTokenCount",
+      "with_image": 1654.8333333333333,
+      "text_only": 663.4285714285714,
+      "image_tokens_each": [
+        1073
+      ]
+    },
+    "output_tokens_per_post": {
+      "mean": 968.9166666666666,
+      "sd": 1442.1425831817007,
+      "min": 161,
+      "max": 8058,
+      "n": 60,
+      "visible": {
+        "mean": 163.21666666666667,
+        "sd": 58.20946736052032,
+        "min": 85,
+        "max": 281,
+        "n": 60
+      },
+      "thinking": {
+        "mean": 805.7,
+        "sd": 1443.8274733780888,
+        "min": 74,
+        "max": 7867,
+        "n": 60
+      },
+      "source": "60 paid generateContent calls: 20 posts x 3 reps, default thinking",
+      "median": 556.0
+    },
+    "usd_per_1000": 4.354075,
+    "usd_per_1000_by_rep": [
+      4.7867625,
+      4.8132,
+      3.4622625
+    ],
+    "usd_per_1000_range_over_reps": [
+      3.4622625,
+      4.8132
+    ],
+    "usd_per_1000_by_issuer": {
+      "city": 3.922,
+      "deped": 6.1810625,
+      "pagasa": 5.6765,
+      "power": 3.2528125,
+      "water": 2.738
+    },
+    "php_per_1000": 272.282080125,
+    "usd_per_1000_batch_tier": 2.1770375,
+    "usd_per_1000_from_2027": 8.70815,
+    "thinking_low": {
+      "usd_per_1000": 1.3911375,
+      "php_per_1000": 86.99478356249999,
+      "output_tokens_per_post": {
+        "mean": 178.8,
+        "sd": 82.72121855968999,
+        "min": 84,
+        "max": 405,
+        "n": 20
+      },
+      "source": "20 paid calls, thinkingLevel=low, 1 rep",
+      "note": "Accuracy at low thinking NOT measured; cost only. Scored on the locked 50 in eval/ before use."
+    },
+    "paid_spend_usd_at_list_price": {
+      "default_thinking_run": 0.2612445,
+      "thinking_low_run": 0.027822750000000004,
+      "earlier_smoke_5_calls": 0.01475,
+      "total": 0.30381725,
+      "note": "Smoke calls were on the earlier workload, commit 425641f. Carl's cap: $5."
+    }
+  },
+  "pc": {
+    "server": "http://<inference-server>:8000",
+    "model": "gemma-4-31b-it (AWQ 4-bit, vLLM, RTX 5090 GPU0, shared)",
+    "reps": [
+      {
+        "rep": 1,
+        "run_at": "2026-10-04T02:11:40.354820+00:00",
+        "batch_seconds": 24.45735216140747,
+        "n_posts": 20,
+        "n_samples": {
+          "baseline": 118,
+          "batch": 48,
+          "tail": 118
+        },
+        "gpu_w": {
+          "baseline": 520.0089830508474,
+          "batch": 527.3927083333333,
+          "tail": 515.0018644067796,
+          "reference_baseline_and_tail": 517.5054237288135
+        },
+        "gpu_util_pct": {
+          "baseline": 95.02542372881356,
+          "batch": 96.79166666666667
+        },
+        "tokens": {
+          "ours_prompt": 15143,
+          "ours_completion": 3295,
+          "server_prompt": 25751.0,
+          "server_generation": 5045.0,
+          "share_generation": 0.6531219028741329,
+          "share_all_tokens": 0.5987141187167164,
+          "share_used": 0.6531219028741329
+        },
+        "wh_per_post": {
+          "gpu_marginal": 0.0033585666874000357,
+          "gpu_token_share": 0.11700523950485923,
+          "gpu_dedicated_upper": 0.17914762770926096
+        },
+        "mean_completion_tokens": 164.75,
+        "mean_prompt_tokens": 757.15,
+        "finish_reasons": [
+          "stop"
+        ]
+      },
+      {
+        "rep": 2,
+        "run_at": "2026-10-04T02:14:05.915912+00:00",
+        "batch_seconds": 21.448435068130493,
+        "n_posts": 20,
+        "n_samples": {
+          "baseline": 118,
+          "batch": 42,
+          "tail": 118
+        },
+        "gpu_w": {
+          "baseline": 517.6927118644068,
+          "batch": 524.2366666666667,
+          "tail": 518.7987288135594,
+          "reference_baseline_and_tail": 518.245720338983
+        },
+        "gpu_util_pct": {
+          "baseline": 96.2542372881356,
+          "batch": 95.64285714285714
+        },
+        "tokens": {
+          "ours_prompt": 15143,
+          "ours_completion": 3317,
+          "server_prompt": 24125.0,
+          "server_generation": 4586.0,
+          "share_generation": 0.7232882686436982,
+          "share_all_tokens": 0.6429591445787329,
+          "share_used": 0.7232882686436982
+        },
+        "wh_per_post": {
+          "gpu_marginal": 0.0017846725459163622,
+          "gpu_token_share": 0.11295408156887546,
+          "gpu_dedicated_upper": 0.1561674459074051
+        },
+        "mean_completion_tokens": 165.85,
+        "mean_prompt_tokens": 757.15,
+        "finish_reasons": [
+          "stop"
+        ]
+      },
+      {
+        "rep": 3,
+        "run_at": "2026-10-04T02:16:31.727689+00:00",
+        "batch_seconds": 21.633322954177856,
+        "n_posts": 20,
+        "n_samples": {
+          "baseline": 118,
+          "batch": 43,
+          "tail": 118
+        },
+        "gpu_w": {
+          "baseline": 519.8309322033898,
+          "batch": 519.1030232558139,
+          "tail": 521.387033898305,
+          "reference_baseline_and_tail": 520.6089830508474
+        },
+        "gpu_util_pct": {
+          "baseline": 95.44067796610169,
+          "batch": 95.44186046511628
+        },
+        "tokens": {
+          "ours_prompt": 15143,
+          "ours_completion": 3322,
+          "server_prompt": 21185.0,
+          "server_generation": 4673.0,
+          "share_generation": 0.7108923603680719,
+          "share_all_tokens": 0.7140923505298167,
+          "share_used": 0.7140923505298167
+        },
+        "wh_per_post": {
+          "gpu_marginal": -0.00045248492502732363,
+          "gpu_token_share": 0.11137781055915821,
+          "gpu_dedicated_upper": 0.15597115761921002
+        },
+        "mean_completion_tokens": 166.1,
+        "mean_prompt_tokens": 757.15,
+        "finish_reasons": [
+          "stop"
+        ]
+      }
+    ],
+    "gpu_w_batch": {
+      "mean": 523.5774660852713,
+      "sd": 4.183972840016517,
+      "min": 519.1030232558139,
+      "max": 527.3927083333333,
+      "n": 3
+    },
+    "gpu_w_baseline": {
+      "mean": 518.786709039548,
+      "sd": 1.6209632003688805,
+      "min": 517.5054237288135,
+      "max": 520.6089830508474,
+      "n": 3
+    },
+    "wh_per_post_gpu_marginal": {
+      "mean": 0.0015635847694296914,
+      "sd": 0.0019151210018769464,
+      "min": -0.00045248492502732363,
+      "max": 0.0033585666874000357,
+      "n": 3
+    },
+    "wh_per_post_gpu_token_share": {
+      "mean": 0.11377904387763096,
+      "sd": 0.0029030003863035987,
+      "min": 0.11137781055915821,
+      "max": 0.11700523950485923,
+      "n": 3
+    },
+    "wh_per_post_gpu_dedicated_upper": {
+      "mean": 0.16376207707862536,
+      "sd": 0.013324639148168674,
+      "min": 0.15597115761921002,
+      "max": 0.17914762770926096,
+      "n": 3
+    },
+    "wh_per_post_wall_token_share": {
+      "mean": 0.15056479375631096,
+      "sd": 0.00366251227100882,
+      "min": 0.1475929229023355,
+      "max": 0.1546564889296603,
+      "n": 3
+    },
+    "wh_per_post_wall_dedicated_upper": {
+      "mean": 0.21670020405017829,
+      "sd": 0.01740328322954875,
+      "min": 0.20661882117509592,
+      "max": 0.23679574708653603,
+      "n": 3
+    },
+    "kwh_per_1000_headline": 0.15056479375631096,
+    "kwh_per_1000_dedicated_upper": 0.21670020405017829,
+    "cost_per_1000_headline": {
+      "meralco": {
+        "php": 2.219686415473039,
+        "usd": 0.03549510538855104
+      },
+      "meco": {
+        "php": 2.0316159315920306,
+        "usd": 0.03248766181485617
+      },
+      "pge_etouc_offpeak": {
+        "usd": 0.05534310124100722,
+        "php": 3.4608808361063863
+      },
+      "pge_e1_tier2": {
+        "usd": 0.06128288235469369,
+        "php": 3.8323250480507696
+      }
+    },
+    "cost_per_1000_range_over_reps": {
+      "low": {
+        "meralco": {
+          "php": 2.175873906595391,
+          "usd": 0.0347944975868776
+        },
+        "meco": {
+          "php": 1.9915155865980836,
+          "usd": 0.03184641539294929
+        },
+        "pge_etouc_offpeak": {
+          "usd": 0.05425073067121146,
+          "php": 3.3925694425242083
+        },
+        "pge_e1_tier2": {
+          "usd": 0.0600732714797086,
+          "php": 3.7566820319835768
+        }
+      },
+      "high": {
+        "meralco": {
+          "php": 2.280007822396624,
+          "usd": 0.03645970772202165
+        },
+        "meco": {
+          "php": 2.0868264020745855,
+          "usd": 0.033370534933630534
+        },
+        "pge_etouc_offpeak": {
+          "usd": 0.05684708563587524,
+          "php": 3.554932500239458
+        },
+        "pge_e1_tier2": {
+          "usd": 0.06294828412415034,
+          "php": 3.936470947703741
+        }
+      }
+    },
+    "cost_per_1000_dedicated_upper": {
+      "meralco": {
+        "php": 3.1946810881893484,
+        "usd": 0.05108628908913966
+      },
+      "meco": {
+        "php": 2.9240008633102708,
+        "usd": 0.04675782942848438
+      },
+      "pge_etouc_offpeak": {
+        "usd": 0.07965249400272403,
+        "php": 4.981068712460347
+      },
+      "pge_e1_tier2": {
+        "usd": 0.08820131705250356,
+        "php": 5.5156693618783095
+      }
+    },
+    "method": "nvidia-smi power.draw every 500 ms over SSH; 60 s baseline, batch of 20 posts at concurrency 4, 60 s tail; vLLM /metrics token counters read at each boundary. Headline = GPU energy in the batch window x our share of tokens the server processed in that window (larger of generation-only and all-token share), plus platform power in the same share, divided by PSU efficiency. Marginal = (batch W - mean of baseline and tail W) x duration. Dedicated upper = all GPU + platform energy in the window charged to our 20 posts."
+  },
+  "mac": {
+    "label": "ESTIMATE, not measured (Carl's rule: no bulk compute on the Macs)",
+    "seconds_per_post": 15.544623015873016,
+    "inputs": {
+      "prompt_tokens": 757.15,
+      "completion_tokens": 165.56666666666666
+    },
+    "wh_per_post": {
+      "low": 0.33871925460513425,
+      "mid": 0.4437893916568685,
+      "high": 0.5488595287086028
+    },
+    "hours_per_1000": 4.317950837742504,
+    "cost_per_1000_mid": {
+      "meralco": {
+        "php": 6.542520727562218,
+        "usd": 0.10462174346465529
+      },
+      "meco": {
+        "php": 5.988183398443623,
+        "usd": 0.09575731028134042
+      },
+      "pge_etouc_offpeak": {
+        "usd": 0.16312366669131514,
+        "php": 10.200938496541392
+      },
+      "pge_e1_tier2": {
+        "usd": 0.1806311581921786,
+        "php": 11.295769477547887
+      }
+    },
+    "cost_per_1000_low": {
+      "meralco": {
+        "php": 4.993534739090731,
+        "usd": 0.07985183879572609
+      },
+      "meco": {
+        "php": 4.5704405181634575,
+        "usd": 0.07308612006337983
+      },
+      "pge_etouc_offpeak": {
+        "usd": 0.1245030364152092,
+        "php": 7.785797382225107
+      },
+      "pge_e1_tier2": {
+        "usd": 0.13786551100938174,
+        "php": 8.621419730971686
+      }
+    },
+    "cost_per_1000_high": {
+      "meralco": {
+        "php": 8.091506716033706,
+        "usd": 0.1293916481335845
+      },
+      "meco": {
+        "php": 7.40592627872379,
+        "usd": 0.11842850049930104
+      },
+      "pge_etouc_offpeak": {
+        "usd": 0.20174429696742113,
+        "php": 12.61607961085768
+      },
+      "pge_e1_tier2": {
+        "usd": 0.2233968053749755,
+        "php": 13.970119224124092
+      }
+    },
+    "excludes": "vision-encoder time for image posts (6/20); display; idle power between posts"
+  },
+  "run_date": "2026-10-04",
+  "cost": {
+    "bars": [
+      {
+        "id": "gemini",
+        "label": "Gemini API",
+        "usd_per_1k": 4.354075,
+        "php_per_1k": 272.282080125,
+        "rate": "list price, default thinking"
+      },
+      {
+        "id": "gemma_meco",
+        "label": "Gemma, my PC, MECO rate (Lapu-Lapu)",
+        "usd_per_1k": 0.03248766181485617,
+        "php_per_1k": 2.0316159315920306,
+        "rate": "13.4933 PHP per kWh (residential average, all-in) 2026-07"
+      },
+      {
+        "id": "gemma_meralco",
+        "label": "Gemma, my PC, Meralco rate",
+        "usd_per_1k": 0.03549510538855104,
+        "php_per_1k": 2.219686415473039,
+        "rate": "14.7424 PHP per kWh (typical 200 kWh household, all-in) 2026-09"
+      }
+    ],
+    "watts": 524,
+    "watts_method": "nvidia-smi power.draw every 500 ms over SSH; 60 s baseline, batch of 20 posts at concurrency 4, 60 s tail; vLLM /metrics token counters read at each boundary. Headline = GPU energy in the batch window x our share of tokens the server processed in that window (larger of generation-only and all-token share), plus platform power in the same share, divided by PSU efficiency. Marginal = (batch W - mean of baseline and tail W) x duration. Dedicated upper = all GPU + platform energy in the window charged to our 20 posts."
+  }
+}

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abiso · label</title>
+<style>
+  :root { --bg:#fff; --text:#0a0a0a; --dim:#6b6b6b; --line:#e5e5e5; --soft:#f5f5f5; --ink:#0a0a0a; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0a0a0a; --text:#f2f2f2; --dim:#9a9a9a; --line:#262626; --soft:#161616; --ink:#f2f2f2; } }
+  * { box-sizing:border-box; }
+  html, body { margin:0; background:var(--bg); color:var(--text); font:17px/1.6 -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  header { position:sticky; top:0; z-index:5; background:var(--bg); border-bottom:1px solid var(--line); padding:12px 20px; display:flex; gap:10px; align-items:center; }
+  header .prog { flex:1; min-width:0; font-size:14px; color:var(--dim); white-space:nowrap; }
+  header button { min-height:40px; padding:8px 14px; }
+  .bar { height:3px; background:var(--line); margin-top:6px; }
+  .bar > div { height:100%; background:var(--ink); width:0; transition:width .2s; }
+  main { max-width:640px; margin:0 auto; padding:28px 20px 120px; }
+  .card { padding:0 0 28px; margin-bottom:28px; border-bottom:1px solid var(--line); }
+  .meta { color:var(--dim); font-size:14px; display:flex; gap:12px; flex-wrap:wrap; }
+  .meta a { color:var(--text); }
+  .text.clamp { display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden; }
+  .more { background:none; border:0; padding:6px 0; min-height:0; color:var(--dim); text-decoration:underline; font-size:14px; }
+  .text { white-space:pre-wrap; word-wrap:break-word; margin-top:18px; font-size:18px; line-height:1.65; }
+  .imgs { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:10px; margin-top:20px; }
+  .imgs img { aspect-ratio:4/3; object-fit:cover; }
+  .imgs figure { margin:0; } .imgs img { width:100%; display:block; border:1px solid var(--line); }
+  .imgs figcaption { color:var(--dim); font-size:13px; margin-top:6px; }
+  h3 { margin:28px 0 10px; font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); }
+  .row { display:flex; gap:8px; flex-wrap:wrap; }
+  button, .chip { background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:999px; padding:10px 16px; font:inherit; font-size:15px; cursor:pointer; min-height:44px; }
+  button.on, .chip.on { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  button.primary { background:var(--ink); color:var(--bg); border-color:var(--ink); font-weight:600; width:100%; border-radius:12px; min-height:52px; font-size:17px; }
+  kbd { display:none; }
+  @media (hover:hover) and (pointer:fine) { kbd { display:inline; font:12px ui-monospace, monospace; opacity:.5; margin-left:8px; } }
+  input, select, textarea { background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:10px; padding:11px 12px; font:inherit; font-size:16px; min-height:46px; }
+  input[type=checkbox] { min-height:auto; width:20px; height:20px; accent-color:var(--ink); }
+  textarea { width:100%; min-height:80px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .grid2 label { display:flex; flex-direction:column; gap:6px; color:var(--dim); font-size:14px; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; max-height:240px; overflow:auto; }
+  .chip { padding:8px 14px; min-height:40px; font-size:15px; }
+  .status { color:var(--dim); font-size:14px; min-height:20px; }
+  .status.err { color:var(--text); font-weight:600; } .status.ok { color:var(--dim); }
+  .done { color:var(--dim); font-size:14px; margin-top:12px; }
+  .draft { margin-top:16px; padding:14px 16px; background:var(--soft); border-left:3px solid var(--ink); font-size:15px; line-height:1.5; }
+  .savebar { position:fixed; left:0; right:0; bottom:0; background:var(--bg); border-top:1px solid var(--line); padding:12px 20px calc(12px + env(safe-area-inset-bottom)); }
+  .savebar .inner { max-width:640px; margin:0 auto; display:flex; flex-direction:column; gap:6px; }
+  @media (max-width:520px) { .grid2 { grid-template-columns:1fr; } header { padding:10px 16px; } main { padding:22px 16px 130px; } }
+</style>
+</head>
+<body>
+<header>
+  <button id="prev" title="Previous (←)">←</button>
+  <div class="prog"><div id="progtext">loading…</div><div class="bar"><div id="bar"></div></div></div>
+  <button id="next" title="Next (→)">→</button>
+  <button id="nextUn" title="Next unlabelled (u)">next<kbd>u</kbd></button>
+</header>
+<main>
+  <section class="card" id="post"></section>
+  <section class="card">
+    <p class="meta" id="rule">One label per post. If it lists several outages: the most common type, every barangay named (union), and earliest start to latest end.</p>
+    <h3>Type</h3><div class="row" id="types"></div>
+    <h3>Status</h3>
+    <div class="row"><select id="status"><option value="">(none)</option></select></div>
+    <h3>Barangays <span class="meta">(none selected = city-wide or not applicable)</span></h3>
+    <input id="bfilter" placeholder="filter barangays" style="width:100%;margin-bottom:6px">
+    <div class="chips" id="brgys"></div>
+    <h3>When (Philippine time, UTC+8)</h3>
+    <div class="grid2">
+      <label>Start<input type="datetime-local" id="start"></label>
+      <label>End<input type="datetime-local" id="end"></label>
+    </div>
+    <label class="row" style="align-items:center;margin-top:8px;color:var(--dim)"><input type="checkbox" id="allday"> all day</label>
+    <h3>Notes</h3><textarea id="notes"></textarea>
+    <h3>Tags <span class="meta">(your lanes; never scored)</span></h3>
+    <div class="row" id="qtags"></div>
+    <div class="row" style="margin-top:8px"><input id="tagin" placeholder="free tag, Enter to add" style="flex:1"></div>
+    <div class="chips" id="tags" style="margin-top:6px"></div>
+    <div class="savebar"><div class="inner">
+      <button class="primary" id="save">Save &amp; next<kbd>s / ⌘↵</kbd></button>
+      <span class="status" id="msg"></span>
+    </div></div>
+  </section>
+</main>
+<script>
+const S = { posts: [], labels: {}, i: 0, form: null, meta: null };
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const phLocal = iso => iso ? iso.slice(0, 16) : '';  // stored values are +08:00, so the wall-clock prefix is PH time
+const fmtPH = iso => iso ? new Date(iso).toLocaleString('en-PH', { timeZone: 'Asia/Manila', dateStyle: 'medium', timeStyle: 'short' }) + ' PH' : 'time unknown';
+
+function blankForm() { return { type: null, status: '', barangays: [], start: '', end: '', all_day: false, notes: '', tags: [] }; }
+function formFrom(l) {
+  return l ? { type: l.type, status: l.status || '', barangays: [...l.barangays], start: phLocal(l.start), end: phLocal(l.end),
+               all_day: l.all_day, notes: l.notes || '', tags: [...(l.tags || [])] } : blankForm();
+}
+
+async function load() {
+  const r = await fetch('/api/state'); const st = await r.json();
+  S.posts = st.posts; S.labels = st.labels; S.meta = st; S.drafts = st.drafts || {};
+  const firstUn = S.posts.findIndex(p => !S.labels[p.post_id]);
+  show(firstUn === -1 ? 0 : firstUn);
+  buildStatic();
+}
+
+function buildStatic() {
+  $('types').innerHTML = S.meta.types.map(t => `<button data-type="${t.value}">${t.value.replace('_', ' ')}<kbd>${t.key}</kbd></button>`).join('');
+  $('status').innerHTML = '<option value="">(none)</option>' + S.meta.statuses.map(s => `<option>${s}</option>`).join('');
+  $('qtags').innerHTML = S.meta.quick_tags.map(t => `<button data-qtag="${t}">${t}</button>`).join('');
+  renderForm();
+}
+
+function progress() {
+  const n = S.posts.filter(p => S.labels[p.post_id]).length, tot = S.posts.length;
+  $('progtext').textContent = `${n}/${tot} saved · #${S.i + 1}`;
+  $('bar').style.width = tot ? (100 * n / tot) + '%' : '0';
+}
+
+function mediaSrc(m) { return m.path ? '/media/' + encodeURIComponent(m.path.split('/').pop()) : m.url; }
+
+function show(i) {
+  if (!S.posts.length) { $('post').innerHTML = '<p>No posts in data/raw/posts.jsonl yet.</p>'; return; }
+  S.i = Math.max(0, Math.min(i, S.posts.length - 1));
+  const p = S.posts[S.i], l = S.labels[p.post_id];
+  const d = !l && S.drafts ? S.drafts[p.post_id] : null;
+  S.fromDraft = !!d; S.form = formFrom(l || d);
+  const imgs = (p.media || []).filter(m => m.kind === 'image' && (m.path || m.url));
+  $('post').innerHTML = `
+    <div class="meta"><b>${esc(p.page)}</b><span>${esc(fmtPH(p.posted_at))}</span>
+      <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">open source ↗</a><span>${esc(p.capture_method)}</span></div>
+    ${d ? `<div class="draft"><b>Claude labelled this.</b> If it looks right, tap Save. If not, fix it first.${d.notes ? '<br><span style="color:var(--dim)">' + esc(d.notes) + '</span>' : ''}</div>` : ''}
+    ${l ? `<div class="done">labelled ${esc(fmtPH(l.labelled_at))} (saving again appends a newer label)</div>` : ''}
+    <div class="text${(p.text||'').length > 500 ? ' clamp' : ''}" id="ptext">${esc(p.text) || '<i>(no text)</i>'}</div>${(p.text||'').length > 500 ? '<button class="more" onclick="document.getElementById(\'ptext\').classList.remove(\'clamp\');this.remove()">show more</button>' : ''}
+    ${imgs.length ? `<div class="imgs">${imgs.map(m => `<figure><a href="${esc(mediaSrc(m))}" target="_blank"><img loading="lazy" src="${esc(mediaSrc(m))}" alt="${esc(m.alt)}" onerror="this.closest('figure').querySelector('figcaption').textContent='image unavailable (remote link expired or 404)'"></a><figcaption>${esc(m.alt || '')}</figcaption></figure>`).join('')}</div>` : ''}`;
+  $('msg').textContent = ''; $('msg').className = 'status';
+  renderForm(); progress(); window.scrollTo(0, 0);
+}
+
+function renderForm() {
+  if (!S.form || !S.meta) return;
+  const f = S.form;
+  document.querySelectorAll('[data-type]').forEach(b => b.classList.toggle('on', b.dataset.type === f.type));
+  document.querySelectorAll('[data-qtag]').forEach(b => b.classList.toggle('on', f.tags.includes(b.dataset.qtag)));
+  $('status').value = f.status; $('start').value = f.start; $('end').value = f.end;
+  $('allday').checked = f.all_day; $('notes').value = f.notes;
+  const q = $('bfilter').value.trim().toLowerCase();
+  $('brgys').innerHTML = S.meta.barangays.filter(b => !q || b.toLowerCase().includes(q) || f.barangays.includes(b))
+    .map(b => `<span class="chip ${f.barangays.includes(b) ? 'on' : ''}" data-brgy="${esc(b)}">${esc(b)}</span>`).join('');
+  $('tags').innerHTML = f.tags.filter(t => !S.meta.quick_tags.includes(t))
+    .map(t => `<span class="chip on" data-tag="${esc(t)}">${esc(t)} ✕</span>`).join('');
+}
+
+function toggle(arr, v) { const k = arr.indexOf(v); k === -1 ? arr.push(v) : arr.splice(k, 1); }
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-type],[data-qtag],[data-brgy],[data-tag]');
+  if (!t || !S.form) return;
+  if (t.dataset.type) S.form.type = t.dataset.type;
+  else if (t.dataset.qtag) toggle(S.form.tags, t.dataset.qtag);
+  else if (t.dataset.brgy) toggle(S.form.barangays, t.dataset.brgy);
+  else if (t.dataset.tag) toggle(S.form.tags, t.dataset.tag);
+  renderForm();
+});
+$('status').onchange = e => S.form.status = e.target.value;
+$('start').onchange = e => S.form.start = e.target.value;
+$('end').onchange = e => S.form.end = e.target.value;
+$('allday').onchange = e => S.form.all_day = e.target.checked;
+$('notes').oninput = e => S.form.notes = e.target.value;
+$('bfilter').oninput = renderForm;
+$('tagin').onkeydown = e => {
+  if (e.key !== 'Enter') return;
+  e.preventDefault();
+  e.target.value.split(',').map(s => s.trim().toLowerCase()).filter(Boolean).forEach(t => { if (!S.form.tags.includes(t)) S.form.tags.push(t); });
+  e.target.value = ''; renderForm();
+};
+$('prev').onclick = () => show(S.i - 1);
+$('next').onclick = () => show(S.i + 1);
+$('nextUn').onclick = nextUnlabelled;
+$('save').onclick = save;
+
+function nextUnlabelled() {
+  const n = S.posts.length;
+  for (let k = 1; k <= n; k++) { const j = (S.i + k) % n; if (!S.labels[S.posts[j].post_id]) return show(j); }
+  $('msg').textContent = 'everything is labelled'; $('msg').className = 'status ok';
+}
+
+async function save() {
+  const f = S.form, p = S.posts[S.i];
+  if (!f.type) { $('msg').textContent = 'pick a type first'; $('msg').className = 'status err'; return; }
+  const pending = $('tagin').value.trim();
+  if (pending) { pending.split(',').map(s => s.trim().toLowerCase()).filter(Boolean).forEach(t => f.tags.includes(t) || f.tags.push(t)); $('tagin').value = ''; }
+  const prev = S.labels[p.post_id];
+  const body = { post_id: p.post_id, ...f, status: f.status || null, source: S.fromDraft ? 'haiku_reviewed' : (prev && prev.source) || 'hand' };
+  const r = await fetch('/api/label', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  const out = await r.json();
+  if (!r.ok) { $('msg').textContent = 'NOT saved: ' + out.error; $('msg').className = 'status err'; return; }
+  S.labels[p.post_id] = out.label;
+  progress();
+  $('msg').textContent = 'saved'; $('msg').className = 'status ok';
+  setTimeout(nextUnlabelled, 250);
+}
+
+document.addEventListener('keydown', e => {
+  const typing = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName);
+  if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); return save(); }
+  if (typing || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key === 'ArrowLeft') return show(S.i - 1);
+  if (e.key === 'ArrowRight') return show(S.i + 1);
+  if (e.key === 'u') return nextUnlabelled();
+  if (e.key === 's') { e.preventDefault(); return save(); }
+  const t = S.meta && S.meta.types.find(t => t.key === e.key);
+  if (t) { S.form.type = t.value; renderForm(); }
+});
+
+load().catch(err => { $('post').innerHTML = '<p class="status err">Could not load: ' + esc(err) + '</p>'; });
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+{"event_id":"ev_bf1ffedb0dc6dcda","type":"water","field":"start","claims":[{"issuer":"metrocebuwater","post_id":"1505104538329613","value":"2026-10-04T08:11:00+08:00"},{"issuer":"mcwd.gov.ph","post_id":"mcwd:ec9b699835d830c6","value":"2026-10-04T07:00:00+08:00"}]}
+{"event_id":"ev_bf1ffedb0dc6dcda","type":"water","field":"end","claims":[{"issuer":"metrocebuwater","post_id":"1505104538329613","value":"2026-10-04T12:30:00+08:00"},{"issuer":"mcwd.gov.ph","post_id":"mcwd:ec9b699835d830c6","value":"2026-10-04T12:00:00+08:00"}]}

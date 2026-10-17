@@ -1,0 +1,18 @@
+{
+  "_source": "SYNTHETIC. Shape copied from Meta's message_echoes webhook reference, not recorded live.",
+  "object": "page",
+  "entry": [
+    {
+      "id": "100000000000001",
+      "time": 1791007380000,
+      "messaging": [
+        {
+          "sender": {"id": "100000000000001"},
+          "recipient": {"id": "2000000000000002"},
+          "timestamp": 1791007380000,
+          "message": {"is_echo": true, "app_id": 1, "mid": "m_synthetic_echo_0004", "text": "Oo, naay brownout."}
+        }
+      ]
+    }
+  ]
+}

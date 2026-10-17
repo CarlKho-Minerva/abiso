@@ -1,0 +1,251 @@
+{
+ "model": "gemini-3.8-flash",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:countTokens",
+ "run_at": "2026-10-04T02:05:13.485417+00:00",
+ "rows": [
+  {
+   "sample_id": "s02",
+   "has_image": false,
+   "total_tokens": 638,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 638
+    }
+   ]
+  },
+  {
+   "sample_id": "s04",
+   "has_image": false,
+   "total_tokens": 629,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 629
+    }
+   ]
+  },
+  {
+   "sample_id": "s07",
+   "has_image": true,
+   "total_tokens": 1638,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 565
+    },
+    {
+     "modality": "IMAGE",
+     "tokenCount": 1073
+    }
+   ]
+  },
+  {
+   "sample_id": "s20",
+   "has_image": true,
+   "total_tokens": 1634,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 561
+    },
+    {
+     "modality": "IMAGE",
+     "tokenCount": 1073
+    }
+   ]
+  },
+  {
+   "sample_id": "s01",
+   "has_image": false,
+   "total_tokens": 719,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 719
+    }
+   ]
+  },
+  {
+   "sample_id": "s06",
+   "has_image": true,
+   "total_tokens": 1645,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 572
+    },
+    {
+     "modality": "IMAGE",
+     "tokenCount": 1073
+    }
+   ]
+  },
+  {
+   "sample_id": "s12",
+   "has_image": false,
+   "total_tokens": 603,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 603
+    }
+   ]
+  },
+  {
+   "sample_id": "s14",
+   "has_image": false,
+   "total_tokens": 618,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 618
+    }
+   ]
+  },
+  {
+   "sample_id": "s03",
+   "has_image": false,
+   "total_tokens": 632,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 632
+    }
+   ]
+  },
+  {
+   "sample_id": "s16",
+   "has_image": true,
+   "total_tokens": 1634,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 561
+    },
+    {
+     "modality": "IMAGE",
+     "tokenCount": 1073
+    }
+   ]
+  },
+  {
+   "sample_id": "s21",
+   "has_image": false,
+   "total_tokens": 691,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 691
+    }
+   ]
+  },
+  {
+   "sample_id": "s22",
+   "has_image": false,
+   "total_tokens": 604,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 604
+    }
+   ]
+  },
+  {
+   "sample_id": "s08",
+   "has_image": false,
+   "total_tokens": 610,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 610
+    }
+   ]
+  },
+  {
+   "sample_id": "s18",
+   "has_image": false,
+   "total_tokens": 629,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 629
+    }
+   ]
+  },
+  {
+   "sample_id": "s23",
+   "has_image": true,
+   "total_tokens": 1723,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 650
+    },
+    {
+     "modality": "IMAGE",
+     "tokenCount": 1073
+    }
+   ]
+  },
+  {
+   "sample_id": "s24",
+   "has_image": false,
+   "total_tokens": 602,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 602
+    }
+   ]
+  },
+  {
+   "sample_id": "s25",
+   "has_image": false,
+   "total_tokens": 1032,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1032
+    }
+   ]
+  },
+  {
+   "sample_id": "s26",
+   "has_image": true,
+   "total_tokens": 1655,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 582
+    },
+    {
+     "modality": "IMAGE",
+     "tokenCount": 1073
+    }
+   ]
+  },
+  {
+   "sample_id": "s27",
+   "has_image": false,
+   "total_tokens": 627,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 627
+    }
+   ]
+  },
+  {
+   "sample_id": "s28",
+   "has_image": false,
+   "total_tokens": 654,
+   "prompt_tokens_details": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 654
+    }
+   ]
+  }
+ ]
+}

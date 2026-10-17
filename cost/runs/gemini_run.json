@@ -1,0 +1,1402 @@
+{
+ "model": "gemini-3.8-flash",
+ "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+ "calls": 60,
+ "reps": 3,
+ "spent_usd_at_list_price": 0.2612445,
+ "run_at": "2026-10-04T02:09:07.432089+00:00",
+ "rows": [
+  {
+   "rep": 1,
+   "sample_id": "s02",
+   "issuer": "city",
+   "has_image": false,
+   "seconds": 8.18,
+   "usage": {
+    "promptTokenCount": 638,
+    "candidatesTokenCount": 142,
+    "totalTokenCount": 2846,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 638
+     }
+    ],
+    "thoughtsTokenCount": 2066,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-03T00:00:00+08:00\",\n  \"end\": \"2026-10-03T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Classes suspended at all levels city-wide, Oct 3 due to TS Signal No. 1\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s04",
+   "issuer": "city",
+   "has_image": false,
+   "seconds": 1.52,
+   "usage": {
+    "promptTokenCount": 629,
+    "candidatesTokenCount": 86,
+    "totalTokenCount": 1001,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 629
+     }
+    ],
+    "thoughtsTokenCount": 286,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Kadaugan sa Mactan Festival exhibit open at City Hall lobby\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s07",
+   "issuer": "city",
+   "has_image": true,
+   "seconds": 3.54,
+   "usage": {
+    "promptTokenCount": 1638,
+    "candidatesTokenCount": 205,
+    "totalTokenCount": 2428,
+    "promptTokensDetails": [
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 565
+     }
+    ],
+    "thoughtsTokenCount": 585,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"road\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Pusok\",\n      \"detail\": \"Pusok-Mactan Road (Marina Mall to Gaisano Mactan)\"\n    }\n  ],\n  \"start\": \"2026-10-06T21:00:00+08:00\",\n  \"end\": \"2026-10-07T05:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Road closure on Pusok-Mactan Road from Marina Mall to Gaisano Mactan, Oct 6-7, 9:00 PM to 5:00 AM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s20",
+   "issuer": "city",
+   "has_image": true,
+   "seconds": 3.01,
+   "usage": {
+    "promptTokenCount": 1634,
+    "candidatesTokenCount": 142,
+    "totalTokenCount": 2029,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 561
+     },
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     }
+    ],
+    "thoughtsTokenCount": 253,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"work_suspension\",\n  \"status\": \"scheduled\",\n  \"areas\": [],\n  \"start\": \"2026-10-04T00:00:00+08:00\",\n  \"end\": \"2026-10-04T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Suspension of work in government offices, Saturday, October 4, 2026\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s01",
+   "issuer": "power",
+   "has_image": false,
+   "seconds": 2.75,
+   "usage": {
+    "promptTokenCount": 719,
+    "candidatesTokenCount": 236,
+    "totalTokenCount": 1621,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 719
+     }
+    ],
+    "thoughtsTokenCount": 666,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Basak\",\n      \"detail\": \"Feeder 12, Sitio Lawis, M.L. Quezon National Highway from Basak Elementary School to Marigondon Crossing\"\n    },\n    {\n      \"barangay\": \"Marigondon\",\n      \"detail\": \"Feeder 12, M.L. Quezon National Highway to Marigondon Crossing\"\n    }\n  ],\n  \"start\": \"2026-10-04T08:00:00+08:00\",\n  \"end\": \"2026-10-04T17:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Power interruption, Basak and Marigondon, Oct 4, 8 AM to 5 PM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s06",
+   "issuer": "power",
+   "has_image": true,
+   "seconds": 2.86,
+   "usage": {
+    "promptTokenCount": 1645,
+    "candidatesTokenCount": 238,
+    "totalTokenCount": 2307,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 572
+     },
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     }
+    ],
+    "thoughtsTokenCount": 424,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Agus\",\n      \"detail\": \"Sitio Ibabao, Sitio Tabay\"\n    },\n    {\n      \"barangay\": \"Maribago\",\n      \"detail\": \"portions, near the school\"\n    },\n    {\n      \"barangay\": \"Buaya\",\n      \"detail\": null\n    }\n  ],\n  \"start\": \"2026-10-05T07:00:00+08:00\",\n  \"end\": \"2026-10-05T15:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Power interruption in parts of Agus, Maribago, and Buaya on Oct 5 from 7:00 AM to 3:00 PM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s12",
+   "issuer": "power",
+   "has_image": false,
+   "seconds": 3.15,
+   "usage": {
+    "promptTokenCount": 603,
+    "candidatesTokenCount": 133,
+    "totalTokenCount": 1404,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 603
+     }
+    ],
+    "thoughtsTokenCount": 668,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"cancelled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Basak\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Marigondon\",\n      \"detail\": null\n    }\n  ],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": true,\n  \"summary\": \"Scheduled power interruption cancelled in Basak and Marigondon, Oct 4\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s14",
+   "issuer": "power",
+   "has_image": false,
+   "seconds": 2.05,
+   "usage": {
+    "promptTokenCount": 618,
+    "candidatesTokenCount": 181,
+    "totalTokenCount": 1106,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 618
+     }
+    ],
+    "thoughtsTokenCount": 307,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"ongoing\",\n  \"areas\": [\n    {\n      \"barangay\": \"Gun-ob\",\n      \"detail\": \"Feeder 3\"\n    },\n    {\n      \"barangay\": \"Bankal\",\n      \"detail\": \"Feeder 3\"\n    },\n    {\n      \"barangay\": \"Pajac\",\n      \"detail\": \"Feeder 3\"\n    }\n  ],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Unscheduled power interruption in parts of Gun-ob, Bankal, and Pajac due to damaged Feeder 3 line\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s03",
+   "issuer": "water",
+   "has_image": false,
+   "seconds": 1.49,
+   "usage": {
+    "promptTokenCount": 632,
+    "candidatesTokenCount": 217,
+    "totalTokenCount": 1065,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 632
+     }
+    ],
+    "thoughtsTokenCount": 216,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"water\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Pusok\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Ibo\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Looc\",\n      \"detail\": null\n    }\n  ],\n  \"start\": \"2026-10-02T22:00:00+08:00\",\n  \"end\": \"2026-10-03T04:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Water interruption, Pusok, Ibo, and Looc, Oct 2 10 PM to Oct 3 4 AM\",\n  \"confidence\": 0.98\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s16",
+   "issuer": "water",
+   "has_image": true,
+   "seconds": 2.96,
+   "usage": {
+    "promptTokenCount": 1634,
+    "candidatesTokenCount": 267,
+    "totalTokenCount": 2317,
+    "promptTokensDetails": [
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 561
+     }
+    ],
+    "thoughtsTokenCount": 416,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"water\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Babag\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Canjulao\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Tungasan\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Basak\",\n      \"detail\": \"Sitio Kalubihan\"\n    }\n  ],\n  \"start\": \"2026-10-04T21:00:00+08:00\",\n  \"end\": \"2026-10-05T05:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Water service interruption in Babag, Canjulao, Tungasan, and Basak (Sitio Kalubihan) from Oct 4, 9:00 PM to Oct 5, 5:00 AM\",\n  \"confidence\": 0.98\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s21",
+   "issuer": "water",
+   "has_image": false,
+   "seconds": 5.94,
+   "usage": {
+    "promptTokenCount": 691,
+    "candidatesTokenCount": 281,
+    "totalTokenCount": 1293,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 691
+     }
+    ],
+    "thoughtsTokenCount": 321,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"water\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Pajo\",\n      \"detail\": \"portions served by Mactan transmission line\"\n    },\n    {\n      \"barangay\": \"Gun-ob\",\n      \"detail\": \"portions served by Mactan transmission line\"\n    },\n    {\n      \"barangay\": \"Poblacion\",\n      \"detail\": \"portions served by Mactan transmission line\"\n    },\n    {\n      \"barangay\": \"Pusok\",\n      \"detail\": \"portions served by Mactan transmission line\"\n    }\n  ],\n  \"start\": \"2026-10-07T08:00:00+08:00\",\n  \"end\": \"2026-10-07T18:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Low pressure to no water, Pajo, Gun-ob, Poblacion, and Pusok, Oct 7, 8 AM to 6 PM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s22",
+   "issuer": "water",
+   "has_image": false,
+   "seconds": 1.98,
+   "usage": {
+    "promptTokenCount": 604,
+    "candidatesTokenCount": 85,
+    "totalTokenCount": 991,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 604
+     }
+    ],
+    "thoughtsTokenCount": 302,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"resolved\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Advisory on online and accredited payment center options for water bill payments\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s08",
+   "issuer": "deped",
+   "has_image": false,
+   "seconds": 2.58,
+   "usage": {
+    "promptTokenCount": 610,
+    "candidatesTokenCount": 143,
+    "totalTokenCount": 1263,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 610
+     }
+    ],
+    "thoughtsTokenCount": 510,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"extended\",\n  \"areas\": [],\n  \"start\": \"2026-10-04T00:00:00+08:00\",\n  \"end\": \"2026-10-04T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Class suspension extended for Saturday classes (ALS and senior high, public and private) on Oct 4\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s18",
+   "issuer": "deped",
+   "has_image": false,
+   "seconds": 29.03,
+   "usage": {
+    "promptTokenCount": 629,
+    "candidatesTokenCount": 191,
+    "totalTokenCount": 8687,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 629
+     }
+    ],
+    "thoughtsTokenCount": 7867,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"ongoing\",\n  \"areas\": [\n    {\n      \"barangay\": \"Gun-ob\",\n      \"detail\": \"Lapu-Lapu City National High School (main campus)\"\n    }\n  ],\n  \"start\": \"2026-10-03T00:00:00+08:00\",\n  \"end\": \"2026-10-03T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Face-to-face classes suspended at Lapu-Lapu City National High School (main campus) today due to flooding; modular learning implemented\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s23",
+   "issuer": "deped",
+   "has_image": true,
+   "seconds": 2.89,
+   "usage": {
+    "promptTokenCount": 1723,
+    "candidatesTokenCount": 152,
+    "totalTokenCount": 2267,
+    "promptTokensDetails": [
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 650
+     }
+    ],
+    "thoughtsTokenCount": 392,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"scheduled\",\n  \"areas\": [],\n  \"start\": \"2026-10-03T00:00:00+08:00\",\n  \"end\": \"2026-10-03T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"In-person classes suspended in all public schools on Friday, October 3, 2026 due to TCWS No. 1\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s24",
+   "issuer": "deped",
+   "has_image": false,
+   "seconds": 1.25,
+   "usage": {
+    "promptTokenCount": 602,
+    "candidatesTokenCount": 87,
+    "totalTokenCount": 763,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 602
+     }
+    ],
+    "thoughtsTokenCount": 74,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"resolved\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Congratulatory message to Lapu-Lapu City Central School dance troupe\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s25",
+   "issuer": "pagasa",
+   "has_image": false,
+   "seconds": 1.5,
+   "usage": {
+    "promptTokenCount": 1032,
+    "candidatesTokenCount": 116,
+    "totalTokenCount": 1371,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 1032
+     }
+    ],
+    "thoughtsTokenCount": 223,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-02T23:00:00+08:00\",\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Tropical Cyclone Wind Signal No. 1 raised for Lapu-Lapu City due to TS Ompong\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s26",
+   "issuer": "pagasa",
+   "has_image": true,
+   "seconds": 2.39,
+   "usage": {
+    "promptTokenCount": 1655,
+    "candidatesTokenCount": 146,
+    "totalTokenCount": 2209,
+    "promptTokensDetails": [
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 582
+     }
+    ],
+    "thoughtsTokenCount": 408,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-03T08:00:00+08:00\",\n  \"end\": \"2026-10-03T11:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Orange Heavy Rainfall Warning over Lapu-Lapu City, flooding threatening in low-lying areas until 11:00 AM\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s27",
+   "issuer": "pagasa",
+   "has_image": false,
+   "seconds": 9.36,
+   "usage": {
+    "promptTokenCount": 627,
+    "candidatesTokenCount": 88,
+    "totalTokenCount": 2893,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 627
+     }
+    ],
+    "thoughtsTokenCount": 2178,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": true,\n  \"summary\": \"Partly cloudy to cloudy skies with isolated rainshowers or thunderstorms, Sep 29\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 1,
+   "sample_id": "s28",
+   "issuer": "pagasa",
+   "has_image": false,
+   "seconds": 1.5,
+   "usage": {
+    "promptTokenCount": 654,
+    "candidatesTokenCount": 113,
+    "totalTokenCount": 1042,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 654
+     }
+    ],
+    "thoughtsTokenCount": 275,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-02T17:00:00+08:00\",\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Gale warning issued for the seaboards of Cebu due to Tropical Storm Ompong\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s02",
+   "issuer": "city",
+   "has_image": false,
+   "seconds": 2.24,
+   "usage": {
+    "promptTokenCount": 638,
+    "candidatesTokenCount": 148,
+    "totalTokenCount": 1159,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 638
+     }
+    ],
+    "thoughtsTokenCount": 373,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-03T00:00:00+08:00\",\n  \"end\": \"2026-10-03T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Classes suspended at all levels city-wide on October 3, 2026 due to TS Signal No. 1\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s04",
+   "issuer": "city",
+   "has_image": false,
+   "seconds": 1.78,
+   "usage": {
+    "promptTokenCount": 629,
+    "candidatesTokenCount": 88,
+    "totalTokenCount": 955,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 629
+     }
+    ],
+    "thoughtsTokenCount": 238,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Kadaugan sa Mactan Festival exhibit open daily at City Hall lobby\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s07",
+   "issuer": "city",
+   "has_image": true,
+   "seconds": 3.64,
+   "usage": {
+    "promptTokenCount": 1638,
+    "candidatesTokenCount": 205,
+    "totalTokenCount": 2616,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 565
+     },
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     }
+    ],
+    "thoughtsTokenCount": 773,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"road\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Pusok\",\n      \"detail\": \"Pusok-Mactan Road (Marina Mall to Gaisano Mactan)\"\n    }\n  ],\n  \"start\": \"2026-10-06T21:00:00+08:00\",\n  \"end\": \"2026-10-07T05:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Road closure on Pusok-Mactan Road (Marina Mall to Gaisano Mactan), Oct 6-7, 9:00 PM to 5:00 AM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s20",
+   "issuer": "city",
+   "has_image": true,
+   "seconds": 2.03,
+   "usage": {
+    "promptTokenCount": 1634,
+    "candidatesTokenCount": 146,
+    "totalTokenCount": 2042,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 561
+     },
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     }
+    ],
+    "thoughtsTokenCount": 262,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"work_suspension\",\n  \"status\": \"scheduled\",\n  \"areas\": [],\n  \"start\": \"2026-10-04T00:00:00+08:00\",\n  \"end\": \"2026-10-04T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Work suspended in Lapu-Lapu City government offices on Saturday, October 4, 2026\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s01",
+   "issuer": "power",
+   "has_image": false,
+   "seconds": 3.48,
+   "usage": {
+    "promptTokenCount": 719,
+    "candidatesTokenCount": 249,
+    "totalTokenCount": 1737,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 719
+     }
+    ],
+    "thoughtsTokenCount": 769,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Basak\",\n      \"detail\": \"Feeder 12, portion of M.L. Quezon National Highway from Basak Elementary School to Marigondon Crossing\"\n    },\n    {\n      \"barangay\": \"Marigondon\",\n      \"detail\": \"Feeder 12, Sitio Lawis, portion of M.L. Quezon National Highway near Marigondon Crossing\"\n    }\n  ],\n  \"start\": \"2026-10-04T08:00:00+08:00\",\n  \"end\": \"2026-10-04T17:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Scheduled power interruption in parts of Basak and Marigondon on Oct 4 from 8:00 AM to 5:00 PM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s06",
+   "issuer": "power",
+   "has_image": true,
+   "seconds": 2.52,
+   "usage": {
+    "promptTokenCount": 1645,
+    "candidatesTokenCount": 230,
+    "totalTokenCount": 2267,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 572
+     },
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     }
+    ],
+    "thoughtsTokenCount": 392,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Agus\",\n      \"detail\": \"Sitio Ibabao, Sitio Tabay\"\n    },\n    {\n      \"barangay\": \"Maribago\",\n      \"detail\": \"portions, near the school\"\n    },\n    {\n      \"barangay\": \"Buaya\",\n      \"detail\": null\n    }\n  ],\n  \"start\": \"2026-10-05T07:00:00+08:00\",\n  \"end\": \"2026-10-05T15:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Power interruption in Agus, Maribago, and Buaya on Oct 5, 7 AM to 3 PM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s12",
+   "issuer": "power",
+   "has_image": false,
+   "seconds": 2.41,
+   "usage": {
+    "promptTokenCount": 603,
+    "candidatesTokenCount": 152,
+    "totalTokenCount": 1169,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 603
+     }
+    ],
+    "thoughtsTokenCount": 414,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"cancelled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Basak\",\n      \"detail\": \"portions of Brgy. Basak\"\n    },\n    {\n      \"barangay\": \"Marigondon\",\n      \"detail\": \"portions of Brgy. Marigondon\"\n    }\n  ],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": true,\n  \"summary\": \"Scheduled power interruption cancelled in portions of Basak and Marigondon on October 4\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s14",
+   "issuer": "power",
+   "has_image": false,
+   "seconds": 2.01,
+   "usage": {
+    "promptTokenCount": 618,
+    "candidatesTokenCount": 183,
+    "totalTokenCount": 1135,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 618
+     }
+    ],
+    "thoughtsTokenCount": 334,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"ongoing\",\n  \"areas\": [\n    {\n      \"barangay\": \"Gun-ob\",\n      \"detail\": \"Feeder 3\"\n    },\n    {\n      \"barangay\": \"Bankal\",\n      \"detail\": \"Feeder 3\"\n    },\n    {\n      \"barangay\": \"Pajac\",\n      \"detail\": \"Feeder 3\"\n    }\n  ],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Unscheduled power outage in parts of Gun-ob, Bankal, and Pajac due to a downed line on Feeder 3\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s03",
+   "issuer": "water",
+   "has_image": false,
+   "seconds": 1.7,
+   "usage": {
+    "promptTokenCount": 632,
+    "candidatesTokenCount": 218,
+    "totalTokenCount": 1081,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 632
+     }
+    ],
+    "thoughtsTokenCount": 231,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"water\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Pusok\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Ibo\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Looc\",\n      \"detail\": null\n    }\n  ],\n  \"start\": \"2026-10-02T22:00:00+08:00\",\n  \"end\": \"2026-10-03T04:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Water interruption in Pusok, Ibo, and Looc from Oct 2, 10 PM to Oct 3, 4 AM\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s16",
+   "issuer": "water",
+   "has_image": true,
+   "seconds": 3.19,
+   "usage": {
+    "promptTokenCount": 1634,
+    "candidatesTokenCount": 267,
+    "totalTokenCount": 2324,
+    "promptTokensDetails": [
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 561
+     }
+    ],
+    "thoughtsTokenCount": 423,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"water\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Babag\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Canjulao\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Tungasan\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Basak\",\n      \"detail\": \"Sitio Kalubihan\"\n    }\n  ],\n  \"start\": \"2026-10-04T21:00:00+08:00\",\n  \"end\": \"2026-10-05T05:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Water service interruption in Babag, Canjulao, Tungasan, and Basak (Sitio Kalubihan) from Oct 4, 9:00 PM to Oct 5, 5:00 AM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s21",
+   "issuer": "water",
+   "has_image": false,
+   "seconds": 2.48,
+   "usage": {
+    "promptTokenCount": 691,
+    "candidatesTokenCount": 221,
+    "totalTokenCount": 1450,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 691
+     }
+    ],
+    "thoughtsTokenCount": 538,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"water\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\"barangay\": \"Pajo\", \"detail\": \"portions\"},\n    {\"barangay\": \"Gun-ob\", \"detail\": \"portions\"},\n    {\"barangay\": \"Poblacion\", \"detail\": \"portions\"},\n    {\"barangay\": \"Pusok\", \"detail\": \"portions\"}\n  ],\n  \"start\": \"2026-10-07T08:00:00+08:00\",\n  \"end\": \"2026-10-07T18:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Low pressure to no water, Pajo, Gun-ob, Poblacion, and Pusok, Oct 7, 8 AM to 6 PM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s22",
+   "issuer": "water",
+   "has_image": false,
+   "seconds": 2.39,
+   "usage": {
+    "promptTokenCount": 604,
+    "candidatesTokenCount": 88,
+    "totalTokenCount": 1142,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 604
+     }
+    ],
+    "thoughtsTokenCount": 450,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"resolved\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"MCWD reminder on bill payment options via GCash, Maya, and accredited partners\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s08",
+   "issuer": "deped",
+   "has_image": false,
+   "seconds": 3.41,
+   "usage": {
+    "promptTokenCount": 610,
+    "candidatesTokenCount": 145,
+    "totalTokenCount": 1588,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 610
+     }
+    ],
+    "thoughtsTokenCount": 833,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"extended\",\n  \"areas\": [],\n  \"start\": \"2026-10-04T00:00:00+08:00\",\n  \"end\": \"2026-10-04T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Class suspension extended for Saturday classes (ALS and SHS), public and private, on Saturday, October 4\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s18",
+   "issuer": "deped",
+   "has_image": false,
+   "seconds": 12.19,
+   "usage": {
+    "promptTokenCount": 629,
+    "candidatesTokenCount": 191,
+    "totalTokenCount": 4280,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 629
+     }
+    ],
+    "thoughtsTokenCount": 3460,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"ongoing\",\n  \"areas\": [\n    {\n      \"barangay\": null,\n      \"detail\": \"Lapu-Lapu City National High School (main campus)\"\n    }\n  ],\n  \"start\": \"2026-10-03T00:00:00+08:00\",\n  \"end\": \"2026-10-03T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Face-to-face classes suspended at Lapu-Lapu City National High School main campus due to flooding, Oct 3, 2026\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s23",
+   "issuer": "deped",
+   "has_image": true,
+   "seconds": 2.24,
+   "usage": {
+    "promptTokenCount": 1723,
+    "candidatesTokenCount": 147,
+    "totalTokenCount": 2276,
+    "promptTokensDetails": [
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 650
+     }
+    ],
+    "thoughtsTokenCount": 406,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"scheduled\",\n  \"areas\": [],\n  \"start\": \"2026-10-03T00:00:00+08:00\",\n  \"end\": \"2026-10-03T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"In-person classes suspended in all public elementary and secondary schools on Friday, October 3, 2026\",\n  \"confidence\": 0.98\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s24",
+   "issuer": "deped",
+   "has_image": false,
+   "seconds": 1.31,
+   "usage": {
+    "promptTokenCount": 602,
+    "candidatesTokenCount": 94,
+    "totalTokenCount": 821,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 602
+     }
+    ],
+    "thoughtsTokenCount": 125,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"resolved\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"DepEd Lapu-Lapu congratulates Lapu-Lapu City Central School dance troupe on festival win\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s25",
+   "issuer": "pagasa",
+   "has_image": false,
+   "seconds": 1.77,
+   "usage": {
+    "promptTokenCount": 1032,
+    "candidatesTokenCount": 117,
+    "totalTokenCount": 1410,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 1032
+     }
+    ],
+    "thoughtsTokenCount": 261,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-02T23:00:00+08:00\",\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Tropical Cyclone Wind Signal No. 1 raised over Lapu-Lapu City due to Tropical Storm Ompong\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s26",
+   "issuer": "pagasa",
+   "has_image": true,
+   "seconds": 2.1,
+   "usage": {
+    "promptTokenCount": 1655,
+    "candidatesTokenCount": 138,
+    "totalTokenCount": 2084,
+    "promptTokensDetails": [
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 582
+     }
+    ],
+    "thoughtsTokenCount": 291,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-03T08:00:00+08:00\",\n  \"end\": \"2026-10-03T11:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Orange heavy rainfall warning for Lapu-Lapu City; flooding threatening low-lying areas\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s27",
+   "issuer": "pagasa",
+   "has_image": false,
+   "seconds": 29.93,
+   "usage": {
+    "promptTokenCount": 627,
+    "candidatesTokenCount": 87,
+    "totalTokenCount": 8576,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 627
+     }
+    ],
+    "thoughtsTokenCount": 7862,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"resolved\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Routine weather forecast for Central Visayas with isolated rainshowers or thunderstorms\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 2,
+   "sample_id": "s28",
+   "issuer": "pagasa",
+   "has_image": false,
+   "seconds": 1.49,
+   "usage": {
+    "promptTokenCount": 654,
+    "candidatesTokenCount": 119,
+    "totalTokenCount": 932,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 654
+     }
+    ],
+    "thoughtsTokenCount": 159,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-02T17:00:00+08:00\",\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Gale Warning No. 4: Rough to very rough seas affecting Cebu seaboards due to TS Ompong\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s02",
+   "issuer": "city",
+   "has_image": false,
+   "seconds": 4.03,
+   "usage": {
+    "promptTokenCount": 638,
+    "candidatesTokenCount": 143,
+    "totalTokenCount": 1744,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 638
+     }
+    ],
+    "thoughtsTokenCount": 963,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-03T00:00:00+08:00\",\n  \"end\": \"2026-10-03T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Classes suspended at all levels city-wide due to TS Signal No. 1, Oct 3\",\n  \"confidence\": 0.98\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s04",
+   "issuer": "city",
+   "has_image": false,
+   "seconds": 1.77,
+   "usage": {
+    "promptTokenCount": 629,
+    "candidatesTokenCount": 89,
+    "totalTokenCount": 935,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 629
+     }
+    ],
+    "thoughtsTokenCount": 217,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"resolved\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Kadaugan sa Mactan Festival exhibit open to the public at City Hall lobby\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s07",
+   "issuer": "city",
+   "has_image": true,
+   "seconds": 6.64,
+   "usage": {
+    "promptTokenCount": 1638,
+    "candidatesTokenCount": 205,
+    "totalTokenCount": 3497,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 565
+     },
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     }
+    ],
+    "thoughtsTokenCount": 1654,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"road\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Pusok\",\n      \"detail\": \"Pusok-Mactan Road (Marina Mall to Gaisano Mactan)\"\n    }\n  ],\n  \"start\": \"2026-10-06T21:00:00+08:00\",\n  \"end\": \"2026-10-07T05:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Road closure along Pusok-Mactan Road (Marina Mall to Gaisano Mactan) from Oct 6, 9 PM to Oct 7, 5 AM for drainage works\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s20",
+   "issuer": "city",
+   "has_image": true,
+   "seconds": 2.46,
+   "usage": {
+    "promptTokenCount": 1634,
+    "candidatesTokenCount": 146,
+    "totalTokenCount": 2192,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 561
+     },
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     }
+    ],
+    "thoughtsTokenCount": 412,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"work_suspension\",\n  \"status\": \"scheduled\",\n  \"areas\": [],\n  \"start\": \"2026-10-04T00:00:00+08:00\",\n  \"end\": \"2026-10-04T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Work suspended in Lapu-Lapu City government offices on Saturday, October 4, 2026\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s01",
+   "issuer": "power",
+   "has_image": false,
+   "seconds": 3.06,
+   "usage": {
+    "promptTokenCount": 719,
+    "candidatesTokenCount": 275,
+    "totalTokenCount": 1635,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 719
+     }
+    ],
+    "thoughtsTokenCount": 641,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Basak\",\n      \"detail\": \"Feeder 12, apil ang Sitio Lawis ug ang bahin sa M.L. Quezon National Highway gikan sa Basak Elementary School hangtod sa Marigondon Crossing\"\n    },\n    {\n      \"barangay\": \"Marigondon\",\n      \"detail\": \"Feeder 12, apil ang Sitio Lawis ug ang bahin sa M.L. Quezon National Highway gikan sa Basak Elementary School hangtod sa Marigondon Crossing\"\n    }\n  ],\n  \"start\": \"2026-10-04T08:00:00+08:00\",\n  \"end\": \"2026-10-04T17:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Power interruption in parts of Basak and Marigondon on Oct 4 from 8:00 AM to 5:00 PM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s06",
+   "issuer": "power",
+   "has_image": true,
+   "seconds": 3.01,
+   "usage": {
+    "promptTokenCount": 1645,
+    "candidatesTokenCount": 238,
+    "totalTokenCount": 2156,
+    "promptTokensDetails": [
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 572
+     }
+    ],
+    "thoughtsTokenCount": 273,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Agus\",\n      \"detail\": \"Sitio Ibabao, Sitio Tabay\"\n    },\n    {\n      \"barangay\": \"Maribago\",\n      \"detail\": \"portions, near the school\"\n    },\n    {\n      \"barangay\": \"Buaya\",\n      \"detail\": null\n    }\n  ],\n  \"start\": \"2026-10-05T07:00:00+08:00\",\n  \"end\": \"2026-10-05T15:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Power interruption in parts of Agus, Maribago, and Buaya on Oct 5 from 7:00 AM to 3:00 PM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s12",
+   "issuer": "power",
+   "has_image": false,
+   "seconds": 2.65,
+   "usage": {
+    "promptTokenCount": 603,
+    "candidatesTokenCount": 133,
+    "totalTokenCount": 1267,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 603
+     }
+    ],
+    "thoughtsTokenCount": 531,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"cancelled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Basak\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Marigondon\",\n      \"detail\": null\n    }\n  ],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": true,\n  \"summary\": \"Cancelled scheduled power interruption in Basak and Marigondon on Oct 4\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s14",
+   "issuer": "power",
+   "has_image": false,
+   "seconds": 2.34,
+   "usage": {
+    "promptTokenCount": 618,
+    "candidatesTokenCount": 207,
+    "totalTokenCount": 1209,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 618
+     }
+    ],
+    "thoughtsTokenCount": 384,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"power\",\n  \"status\": \"ongoing\",\n  \"areas\": [\n    {\n      \"barangay\": \"Gun-ob\",\n      \"detail\": \"Feeder 3\"\n    },\n    {\n      \"barangay\": \"Bankal\",\n      \"detail\": \"Feeder 3\"\n    },\n    {\n      \"barangay\": \"Pajac\",\n      \"detail\": \"Feeder 3\"\n    }\n  ],\n  \"start\": \"2026-10-03T13:20:00+08:00\",\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Unscheduled power outage in parts of Gun-ob, Bankal, and Pajac due to a broken line on Feeder 3\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s03",
+   "issuer": "water",
+   "has_image": false,
+   "seconds": 1.97,
+   "usage": {
+    "promptTokenCount": 632,
+    "candidatesTokenCount": 219,
+    "totalTokenCount": 1122,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 632
+     }
+    ],
+    "thoughtsTokenCount": 271,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"water\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Pusok\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Ibo\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Looc\",\n      \"detail\": null\n    }\n  ],\n  \"start\": \"2026-10-02T22:00:00+08:00\",\n  \"end\": \"2026-10-03T04:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Water interruption in Pusok, Ibo, and Looc from Oct 2, 10 PM to Oct 3, 4 AM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s16",
+   "issuer": "water",
+   "has_image": true,
+   "seconds": 2.6,
+   "usage": {
+    "promptTokenCount": 1634,
+    "candidatesTokenCount": 256,
+    "totalTokenCount": 2290,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 561
+     },
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     }
+    ],
+    "thoughtsTokenCount": 400,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"water\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Babag\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Canjulao\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Tungasan\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Basak\",\n      \"detail\": \"Sitio Kalubihan\"\n    }\n  ],\n  \"start\": \"2026-10-04T21:00:00+08:00\",\n  \"end\": \"2026-10-05T05:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Water service interruption in Babag, Canjulao, Tungasan, and parts of Basak from Oct 4, 9 PM to Oct 5, 5 AM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s21",
+   "issuer": "water",
+   "has_image": false,
+   "seconds": 2.19,
+   "usage": {
+    "promptTokenCount": 691,
+    "candidatesTokenCount": 255,
+    "totalTokenCount": 1323,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 691
+     }
+    ],
+    "thoughtsTokenCount": 377,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"water\",\n  \"status\": \"scheduled\",\n  \"areas\": [\n    {\n      \"barangay\": \"Pajo\",\n      \"detail\": \"portions\"\n    },\n    {\n      \"barangay\": \"Gun-ob\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Poblacion\",\n      \"detail\": null\n    },\n    {\n      \"barangay\": \"Pusok\",\n      \"detail\": null\n    }\n  ],\n  \"start\": \"2026-10-07T08:00:00+08:00\",\n  \"end\": \"2026-10-07T18:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Low pressure to no water in portions of Pajo, Gun-ob, Poblacion, and Pusok, Oct 7 from 8:00 AM to 6:00 PM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s22",
+   "issuer": "water",
+   "has_image": false,
+   "seconds": 1.56,
+   "usage": {
+    "promptTokenCount": 604,
+    "candidatesTokenCount": 85,
+    "totalTokenCount": 910,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 604
+     }
+    ],
+    "thoughtsTokenCount": 221,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"resolved\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Advisory on payment options for water bills via online and accredited centers\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s08",
+   "issuer": "deped",
+   "has_image": false,
+   "seconds": 3.33,
+   "usage": {
+    "promptTokenCount": 610,
+    "candidatesTokenCount": 139,
+    "totalTokenCount": 1417,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 610
+     }
+    ],
+    "thoughtsTokenCount": 668,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"extended\",\n  \"areas\": [],\n  \"start\": \"2026-10-04T00:00:00+08:00\",\n  \"end\": \"2026-10-04T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Suspension of Saturday classes (ALS and senior high) extended until October 4\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s18",
+   "issuer": "deped",
+   "has_image": false,
+   "seconds": 4.87,
+   "usage": {
+    "promptTokenCount": 629,
+    "candidatesTokenCount": 187,
+    "totalTokenCount": 1999,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 629
+     }
+    ],
+    "thoughtsTokenCount": 1183,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"ongoing\",\n  \"areas\": [\n    {\n      \"barangay\": \"Gun-ob\",\n      \"detail\": \"Lapu-Lapu City National High School (main campus)\"\n    }\n  ],\n  \"start\": \"2026-10-03T00:00:00+08:00\",\n  \"end\": \"2026-10-03T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"Face-to-face classes suspended at Lapu-Lapu City National High School main campus due to flooding, Oct 3\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s23",
+   "issuer": "deped",
+   "has_image": true,
+   "seconds": 2.02,
+   "usage": {
+    "promptTokenCount": 1723,
+    "candidatesTokenCount": 141,
+    "totalTokenCount": 2108,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 650
+     },
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     }
+    ],
+    "thoughtsTokenCount": 244,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"class_suspension\",\n  \"status\": \"scheduled\",\n  \"areas\": [],\n  \"start\": \"2026-10-03T00:00:00+08:00\",\n  \"end\": \"2026-10-03T23:59:59+08:00\",\n  \"all_day\": true,\n  \"summary\": \"In-person classes suspended in all public schools city-wide on Friday, Oct 3\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s24",
+   "issuer": "deped",
+   "has_image": false,
+   "seconds": 1.55,
+   "usage": {
+    "promptTokenCount": 602,
+    "candidatesTokenCount": 97,
+    "totalTokenCount": 864,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 602
+     }
+    ],
+    "thoughtsTokenCount": 165,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"not_disruption\",\n  \"status\": \"resolved\",\n  \"areas\": [],\n  \"start\": null,\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"DepEd Lapu-Lapu City congratulates Lapu-Lapu City Central School dance troupe for winning in regional competition\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s25",
+   "issuer": "pagasa",
+   "has_image": false,
+   "seconds": 1.89,
+   "usage": {
+    "promptTokenCount": 1032,
+    "candidatesTokenCount": 114,
+    "totalTokenCount": 1415,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 1032
+     }
+    ],
+    "thoughtsTokenCount": 269,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-02T23:00:00+08:00\",\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Tropical Storm Ompong: TCWS No. 1 raised over Lapu-Lapu City\",\n  \"confidence\": 1.0\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s26",
+   "issuer": "pagasa",
+   "has_image": true,
+   "seconds": 2.39,
+   "usage": {
+    "promptTokenCount": 1655,
+    "candidatesTokenCount": 146,
+    "totalTokenCount": 2200,
+    "promptTokensDetails": [
+     {
+      "modality": "IMAGE",
+      "tokenCount": 1073
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 582
+     }
+    ],
+    "thoughtsTokenCount": 399,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-03T08:00:00+08:00\",\n  \"end\": \"2026-10-03T11:00:00+08:00\",\n  \"all_day\": false,\n  \"summary\": \"Orange heavy rainfall warning in effect for Lapu-Lapu City, Oct 3, 8 AM to 11 AM\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s27",
+   "issuer": "pagasa",
+   "has_image": false,
+   "seconds": 7.7,
+   "usage": {
+    "promptTokenCount": 627,
+    "candidatesTokenCount": 119,
+    "totalTokenCount": 2588,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 627
+     }
+    ],
+    "thoughtsTokenCount": 1842,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-09-29T05:00:00+08:00\",\n  \"end\": null,\n  \"all_day\": true,\n  \"summary\": \"Partly cloudy to cloudy skies with isolated rainshowers or thunderstorms on September 29, 2026\",\n  \"confidence\": 0.95\n}\n```"
+  },
+  {
+   "rep": 3,
+   "sample_id": "s28",
+   "issuer": "pagasa",
+   "has_image": false,
+   "seconds": 1.55,
+   "usage": {
+    "promptTokenCount": 654,
+    "candidatesTokenCount": 117,
+    "totalTokenCount": 968,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 654
+     }
+    ],
+    "thoughtsTokenCount": 197,
+    "serviceTier": "standard"
+   },
+   "finish_reason": "STOP",
+   "output": "```json\n{\n  \"type\": \"weather\",\n  \"status\": \"ongoing\",\n  \"areas\": [],\n  \"start\": \"2026-10-02T17:00:00+08:00\",\n  \"end\": null,\n  \"all_day\": false,\n  \"summary\": \"Gale warning issued for Cebu seaboards due to Tropical Storm Ompong; rough to very rough seas\",\n  \"confidence\": 0.95\n}\n```"
+  }
+ ]
+}

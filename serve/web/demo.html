@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abiso: demo video</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Inter";src:url(/static/fonts/Inter-latin-var.woff2) format("woff2");font-weight:100 900}
+@font-face{font-family:"JetBrains Mono";src:url(/static/fonts/JetBrainsMono-latin-var.woff2) format("woff2");font-weight:100 800}
+:root{--paper:#f5eee6;--ink:#161514;--mute:#77716a;--line:rgba(22,21,20,.22)}
+html,body{margin:0;background:var(--paper);color:#3d3a36;font:400 16px/1.55 "Inter",system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:32px 16px 60px}
+h1{font:400 64px/1 "Instrument Serif",Georgia,serif;color:var(--ink);margin:4px 0 12px}
+.lab{font:500 12px/18px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+video{width:100%;height:auto;border:1px solid var(--line);background:#000;display:block;margin:16px 0}
+a{color:var(--ink);text-underline-offset:3px}
+</style>
+</head>
+<body><main>
+<div class="lab">Google Cloud AI Builder Cup 2026 / team Pilipins</div>
+<h1>Abiso, the demo</h1>
+<p>3 minutes 29 seconds, recorded against the live service. Captions are on by default.</p>
+<video controls preload="metadata" poster="/static/demo/poster.jpg" playsinline>
+  <source src="/static/demo/abiso_demo.mp4" type="video/mp4">
+  <track kind="captions" src="/static/demo/abiso_demo.vtt" srclang="en" label="English" default>
+</video>
+<p><a href="/">Open the live prototype</a> / <a href="https://github.com/CarlKho-Minerva/abiso">Source on GitHub</a> / <a href="/static/demo/abiso_demo.mp4" download>Download the MP4</a></p>
+</main></body></html>
