@@ -67,6 +67,20 @@ ol li{margin:0 0 8px}
 footer{border-top:1px solid var(--line);padding-top:20px}
 @media (max-width:720px){.hero{grid-template-columns:1fr}.hero img.ink{max-width:220px;justify-self:start;order:-1}.deco{display:none}h1{font-size:72px}}
 @media (max-width:560px){form.ask{flex-direction:column}button.go{padding:14px}.ev{grid-template-columns:1fr}.ev img.ink{width:72px;height:54px}}
+
+/* Asking takes the stage: the rest of the page fades under paper and the ask box sits in the middle. */
+body.asking{overflow:hidden}
+body.asking main>:not(#ask-section){opacity:.0;transition:opacity .5s}
+main>:not(#ask-section){transition:opacity .5s}
+#ask-section{transition:transform .6s cubic-bezier(.4,0,.2,1)}
+body.asking #ask-section{position:fixed;inset:0;z-index:5;border:0;padding:0 16px;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  background:radial-gradient(ellipse at center,var(--paper) 55%,rgba(245,238,230,.92) 100%)}
+body.asking #ask-section>*{width:100%;max-width:720px}
+body.asking #ask-section h2{font-size:56px;text-align:center}
+body.asking #ask-section .sub{text-align:center}
+body.asking #answer{font-size:19px}
+#ask-back{display:none;margin-top:18px;background:transparent;color:var(--mute);border:0;font:400 13px/1 var(--mono);text-transform:none;letter-spacing:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+body.asking #ask-back{display:block;width:auto}
 </style>
 </head>
 <body>
@@ -78,7 +92,7 @@ footer{border-top:1px solid var(--line);padding-top:20px}
   <p id="status" class="mono">Loading the feed...</p>
   </div><img class="ink" src="/static/ink/island.webp" alt="" width="420" height="315"></div>
 
-  <section aria-labelledby="ask-h">
+  <section aria-labelledby="ask-h" id="ask-section">
     <h2 id="ask-h">Ask</h2>
     <p class="sub">A Gemini agent checks the official notices for you. It only answers from them and links every one.</p>
     <form class="ask" id="ask">
@@ -93,6 +107,7 @@ footer{border-top:1px solid var(--line);padding-top:20px}
       <button type="button" class="chip">Anything we should prepare for in Pusok this week?</button>
     </div>
     <div id="answer" role="status" aria-live="polite"></div>
+    <button type="button" id="ask-back">Back to the notices</button>
   </section>
 
   <section aria-labelledby="list-h">
@@ -213,9 +228,11 @@ function linkify(text) {
   return esc(text).replace(/https?:\/\/[^\s<)]+/g, u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
 }
 
+function focusAsk(on) { document.body.classList.toggle("asking", on); if (on) window.scrollTo(0, 0); }
 async function ask(q) {
   q = q.trim();
   if (!q) return;
+  focusAsk(true);
   $("#q").value = q;
   $("#go").disabled = true;
   const a = $("#answer");
@@ -242,6 +259,8 @@ function seg(id, key) {
   });
 }
 
+$("#ask-back").addEventListener("click", () => focusAsk(false));
+addEventListener("keydown", e => { if (e.key === "Escape") focusAsk(false); });
 $("#ask").addEventListener("submit", ev => { ev.preventDefault(); ask($("#q").value); });
 $("#chips").addEventListener("click", ev => { const b = ev.target.closest(".chip"); if (b) ask(b.textContent); });
 $("#area").addEventListener("change", ev => { state.area = ev.target.value; loadList(); });
