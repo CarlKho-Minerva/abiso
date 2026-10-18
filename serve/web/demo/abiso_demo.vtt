@@ -1,335 +1,350 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:01.895
-Basak, Lapu-Lapu City.
+00:00:00.000 --> 00:00:02.426
+Hello, I'm Carl and I live in Lapu-Lapu City
 
-00:00:02.055 --> 00:00:04.168
-Five households, the same stories.
+00:00:02.276 --> 00:00:05.633
+and my story involves waking up early on Saturdays
 
-00:00:04.309 --> 00:00:06.495
-A student revises until one in the morning;
+00:00:05.483 --> 00:00:07.978
+to take cold showers before water is cut off.
 
-00:00:06.600 --> 00:00:08.805
-the suspension was posted at ten forty at
+00:00:08.121 --> 00:00:11.029
+You see here power and water cuts are announced
 
-00:00:08.655 --> 00:00:11.350
-night, on a page the family does not follow.
+00:00:10.879 --> 00:00:14.150
+late on different pages often as images you
 
-00:00:11.418 --> 00:00:12.477
-A mother says:
+00:00:14.000 --> 00:00:16.771
+scroll through on Facebook and families find
 
-00:00:12.709 --> 00:00:14.295
-ligo na mo karon.
+00:00:16.621 --> 00:00:18.874
+out too late to prepare which is why I built
 
-00:00:14.164 --> 00:00:16.295
-The water cut was announced the night before,
-
-00:00:16.364 --> 00:00:18.368
-so the drum gets filled and everyone showers
-
-00:00:18.218 --> 00:00:18.695
-early.
-
-00:00:18.891 --> 00:00:21.005
-Another family lost power and the pump in
-
-00:00:20.855 --> 00:00:21.441
-one night:
-
-00:00:21.927 --> 00:00:24.914
-spoiled food, no shower, a late start at work.
-
-00:00:25.091 --> 00:00:27.168
-And a hot afternoon with nothing prepared.
-
-00:00:27.800 --> 00:00:29.322
-This is where the notices live.
-
-00:00:29.425 --> 00:00:31.792
-MECO, the power company, posts brownouts as
-
-00:00:31.705 --> 00:00:32.425
-images.
-
-00:00:32.613 --> 00:00:36.183
-MCWD, the water district, posts water cuts
-
-00:00:36.095 --> 00:00:37.840
-under a news tab on its own site.
-
-00:00:38.228 --> 00:00:41.682
-DepEd, the education department, posts memos
-
-00:00:41.605 --> 00:00:43.381
-as PDF downloads.
-
-00:00:43.769 --> 00:00:46.167
-PAGASA, the weather bureau, is a fourth site
-
-00:00:46.049 --> 00:00:47.244
-in a fourth format.
-
-00:00:47.491 --> 00:00:48.928
-Two facts make this worse.
-
-00:00:49.317 --> 00:00:51.092
-Since the Department of Education's Order
-
-00:00:51.005 --> 00:00:54.216
-22 of 2024, brownout and heat suspensions
-
-00:00:54.108 --> 00:00:56.591
-are the mayor's call, so the post comes late.
-
-00:00:56.779 --> 00:00:58.354
-And power and water are coupled:
-
-00:00:58.542 --> 00:01:00.486
-when the grid drops, the water district's
-
-00:01:00.474 --> 00:01:03.410
-147 pumps stop too, with one to two hours
-
-00:01:03.302 --> 00:01:03.926
-of warning.
-
-00:01:04.167 --> 00:01:05.954
-An image in a feed is not a record you can
-
-00:01:05.845 --> 00:01:06.555
-check.
-
-00:01:06.809 --> 00:01:09.608
-Abiso reads every official notice once and
-
-00:01:09.501 --> 00:01:10.812
-turns it into an event.
-
-00:01:10.946 --> 00:01:13.081
-This is the live prototype on Cloud Run:
-
-00:01:13.121 --> 00:01:17.039
-341 disruption events from 204 official posts,
-
-00:01:17.110 --> 00:01:18.622
-refreshed every three hours.
-
-00:01:19.010 --> 00:01:23.203
-Today in Basak, an MCWD water interruption
-
-00:01:23.306 --> 00:01:25.493
-for a mainline leak repair, with the link
-
-00:01:25.375 --> 00:01:26.802
-to the notice it came from.
-
-00:01:27.055 --> 00:01:28.798
-Most people here do not search.
-
-00:01:28.870 --> 00:01:29.675
-They ask.
-
-00:01:29.587 --> 00:01:34.065
-Naay water interruption sa Basak karon?
-
-00:01:34.105 --> 00:01:36.017
-The question goes to a Gemini agent built
-
-00:01:35.910 --> 00:01:38.403
-with Google's Agent Development Kit, which
-
-00:01:38.305 --> 00:01:40.587
-hands it to a water specialist that can only
-
-00:01:40.501 --> 00:01:41.855
-read the stored notices.
-
-00:01:42.243 --> 00:01:44.166
-The answer comes back in Cebuano, with the
-
-00:01:44.090 --> 00:01:45.738
-MCWD link.
-
-00:01:46.073 --> 00:01:48.365
-Here is the same question in the ADK developer
-
-00:01:48.300 --> 00:01:48.998
-UI.
-
-00:01:49.134 --> 00:01:50.772
-Event two is the tool call:
-
-00:01:50.959 --> 00:01:53.579
-water, Basak, today's date.
-
-00:01:54.052 --> 00:01:55.701
-Event three is its result.
-
-00:01:55.835 --> 00:01:57.400
-Event four is the reply.
-
-00:01:57.504 --> 00:01:59.458
-The trace shows the coordinator hand off to
-
-00:01:59.361 --> 00:02:01.706
-the water agent, and the water agent call
-
-00:02:01.609 --> 00:02:02.973
-the water interruptions tool.
-
-00:02:03.107 --> 00:02:04.715
-No step answers from memory.
-
-00:02:05.045 --> 00:02:06.441
-The web page is a front.
-
-00:02:06.513 --> 00:02:08.531
-The real place is the family group chat.
-
-00:02:08.634 --> 00:02:10.916
-Ate Jen asks if there is still water.
-
-00:02:11.220 --> 00:02:14.156
-Mama tags Abiso, and the reply is the live
-
-00:02:14.070 --> 00:02:16.066
-answer from the same agent, with the same
-
-00:02:15.969 --> 00:02:16.478
-link.
-
-00:02:16.951 --> 00:02:18.578
-Papa says fill the drum now.
-
-00:02:18.966 --> 00:02:21.945
-Then Kuya Migs forwards a MECO poster, and
-
-00:02:21.837 --> 00:02:23.950
-Abiso reads the image and answers with the
-
-00:02:23.854 --> 00:02:25.005
-event it compiled.
-
-00:02:25.395 --> 00:02:26.515
-The webhook is built;
-
-00:02:26.503 --> 00:02:29.048
-public access waits on Meta's app review.
-
-00:02:30.505 --> 00:02:33.811
-May pasok ba bukas sa Lapu-Lapu?
-
-00:02:33.820 --> 00:02:36.175
-There is no official notice, so Abiso says
-
-00:02:36.078 --> 00:02:37.009
-exactly that.
-
-00:02:37.113 --> 00:02:38.962
-A wrong answer about classes is worse than
-
-00:02:38.865 --> 00:02:39.816
-no answer.
-
-00:02:40.069 --> 00:02:41.233
-Notices change.
-
-00:02:41.473 --> 00:02:44.029
-A MECO poster announces a line fault in Pajac
-
-00:02:43.985 --> 00:02:44.853
-Agora;
-
-00:02:45.156 --> 00:02:47.195
-the next day's poster says it is resolved.
-
-00:02:47.499 --> 00:02:49.539
-In Firestore that is one event with two source
-
-00:02:49.431 --> 00:02:51.280
-posts, not two events.
-
-00:02:51.584 --> 00:02:53.697
-Extensions and cancellations merge the same
-
-00:02:53.589 --> 00:02:54.235
-way.
-
-00:02:54.487 --> 00:02:55.429
-Under the hood.
-
-00:02:55.902 --> 00:02:57.888
-Every three hours Cloud Scheduler wakes the
-
-00:02:57.780 --> 00:02:58.912
-Cloud Run service.
-
-00:02:59.047 --> 00:03:02.279
-Gemini 3.8 Flash on Vertex AI compiles each
-
-00:03:02.192 --> 00:03:04.558
-new post once into a typed event:
-
-00:03:05.136 --> 00:03:08.675
-type, barangays, start, end, status, source.
-
-00:03:09.253 --> 00:03:12.031
-A reconciler merges extensions and cancellations;
-
-00:03:12.039 --> 00:03:13.604
-the events live in Firestore.
-
-00:03:13.992 --> 00:03:15.535
-Four doors read one store:
-
-00:03:15.839 --> 00:03:18.701
-the web page, the ask box agent, a calendar
-
-00:03:18.625 --> 00:03:20.992
-per barangay, the Messenger webhook.
-
-00:03:21.232 --> 00:03:24.168
-Other AI assistants call it through MCP and
-
-00:03:24.103 --> 00:03:25.002
-A2A.
-
-00:03:25.391 --> 00:03:26.744
-One model call per notice;
-
-00:03:26.879 --> 00:03:28.369
-questions cost nothing.
-
-00:03:28.624 --> 00:03:31.127
-We measured it on fifty posts locked before
-
-00:03:31.083 --> 00:03:32.331
-any model saw them.
-
-00:03:32.571 --> 00:03:34.832
-Gemini got the type right every time, the
-
-00:03:34.725 --> 00:03:36.574
-start within an hour ninety two percent of
-
-00:03:36.455 --> 00:03:38.875
-the time, and barangays with ninety four percent
-
-00:03:38.766 --> 00:03:39.507
-overlap.
-
-00:03:39.980 --> 00:03:43.170
-Status is the weakest field, and we say so.
-
-00:03:43.424 --> 00:03:44.291
+00:00:18.724 --> 00:00:19.236
 Abiso.
 
-00:03:44.300 --> 00:03:47.289
-Official notices for Lapu-Lapu City, compiled
+00:00:19.339 --> 00:00:22.368
+In my interviews, we have a student that revises
 
-00:03:47.202 --> 00:03:49.325
-once, answered where people already are.
+00:00:22.218 --> 00:00:24.593
+until 1 in the morning, only to find out that
 
-00:03:49.630 --> 00:03:51.848
-It is live now, and the code is public.
+00:00:24.443 --> 00:00:26.799
+classes were suspended at 10.40 at night.
+
+00:00:27.029 --> 00:00:29.075
+On a page, the family doesn't follow.
+
+00:00:29.184 --> 00:00:31.799
+Again, another mother says, Ligo na mo karon,
+
+00:00:31.805 --> 00:00:33.851
+or take a bath now, because the water cut
+
+00:00:33.701 --> 00:00:35.127
+was announced the night before.
+
+00:00:35.287 --> 00:00:37.696
+So the drum gets filled, and everybody showers
+
+00:00:37.546 --> 00:00:38.230
+early.
+
+00:00:38.339 --> 00:00:40.661
+This family lost power and the pump in one
+
+00:00:40.511 --> 00:00:43.558
+night, so spoiled food, no shower, and a late
+
+00:00:43.408 --> 00:00:46.455
+start at work with a hot afternoon and nothing
+
+00:00:46.305 --> 00:00:46.799
+prepared.
+
+00:00:47.115 --> 00:00:49.937
+Unfortunately, this is expected in our day-to-day.
+
+00:00:50.046 --> 00:00:52.558
+The Power Company again posts brownouts as
+
+00:00:52.408 --> 00:00:54.851
+images you scroll past through, Water District
+
+00:00:54.701 --> 00:00:57.230
+posts on its own site that barely loads, school
+
+00:00:57.080 --> 00:01:00.058
+notices as PDFs, and don't mention the fourth
+
+00:00:59.908 --> 00:01:01.161
+Weather Bureau format.
+
+00:01:01.305 --> 00:01:02.524
+So many formats.
+
+00:01:02.839 --> 00:01:03.937
+Two things making this worse.
+
+00:01:04.046 --> 00:01:06.093
+Number one, since the Department of Education's
+
+00:01:05.943 --> 00:01:09.058
+Order 22 of 2024, brownout and heat suspensions
+
+00:01:08.908 --> 00:01:11.317
+are the mayor's call, making the post come
+
+00:01:11.167 --> 00:01:11.713
+late.
+
+00:01:11.822 --> 00:01:14.299
+Second, power and water, they're coupled,
+
+00:01:14.270 --> 00:01:17.541
+so when the grid drops, 147 water pumps stop
+
+00:01:17.391 --> 00:01:17.903
+as well.
+
+00:01:18.011 --> 00:01:19.834
+with about one to two hours of warning.
+
+00:01:20.149 --> 00:01:22.541
+This is why Abiso reads every official notice
+
+00:01:22.391 --> 00:01:24.075
+once and turns it into an event.
+
+00:01:24.184 --> 00:01:26.748
+This here is the live prototype on Cloud Run,
+
+00:01:26.770 --> 00:01:30.161
+recording 341 disruption events from 204 official
+
+00:01:30.011 --> 00:01:30.610
+posts.
+
+00:01:30.632 --> 00:01:32.351
+This is refreshed every 3 hours.
+
+00:01:32.494 --> 00:01:36.024
+For instance, today, in Basak, an MCWD water
+
+00:01:35.874 --> 00:01:38.282
+interruption for a mainline leak repair has
+
+00:01:38.132 --> 00:01:40.610
+been noticed, with the link of where it came
+
+00:01:40.460 --> 00:01:40.817
+from.
+
+00:01:41.132 --> 00:01:43.834
+The good part is it uses natural language
+
+00:01:43.684 --> 00:01:46.265
+so they can just ask, Naay water interruptions
+
+00:01:46.115 --> 00:01:46.920
+sa Basak today?
+
+00:01:47.132 --> 00:01:49.368
+The question goes to a Gemini agent built
+
+00:01:49.218 --> 00:01:51.541
+with Google's agent development kit which
+
+00:01:51.391 --> 00:01:53.679
+then hands it to a water specialist that can
+
+00:01:53.529 --> 00:01:54.989
+only read the stored notices.
+
+00:01:55.098 --> 00:01:58.058
+The answer comes back in Cebuano with the
+
+00:01:57.908 --> 00:01:59.817
+water office's link.
+
+00:02:00.132 --> 00:02:02.024
+To prove it doesn't hallucinate, here's the
+
+00:02:01.874 --> 00:02:02.679
+developer UI.
+
+00:02:02.770 --> 00:02:05.334
+See the tool call its results, reply, the
+
+00:02:05.184 --> 00:02:07.041
+trace from coordinator to the water agent,
+
+00:02:07.080 --> 00:02:08.110
+and then back to the tool.
+
+00:02:08.167 --> 00:02:09.661
+No step answers from memory.
+
+00:02:10.491 --> 00:02:12.124
+But we don't want yet another webpage.
+
+00:02:12.250 --> 00:02:14.435
+That's why Abiso's real value is found in
+
+00:02:14.285 --> 00:02:16.366
+the family group chat where you already live.
+
+00:02:16.474 --> 00:02:18.693
+Here, Jen asks if there's a water interruption
+
+00:02:18.543 --> 00:02:18.952
+today.
+
+00:02:19.060 --> 00:02:21.969
+Mom tags Abiso and the reply is a live answer
+
+00:02:21.819 --> 00:02:23.676
+from the same agent with proof.
+
+00:02:23.785 --> 00:02:25.228
+Now dad says, okay, let's fill the drum.
+
+00:02:25.354 --> 00:02:25.710
+Stat!
+
+00:02:25.819 --> 00:02:28.952
+Then Migs forwards a poster from social media,
+
+00:02:29.009 --> 00:02:31.676
+then Abiso reads the image just for verification
+
+00:02:31.526 --> 00:02:33.693
+and then answers with the event it compiled.
+
+00:02:33.543 --> 00:02:36.107
+So the webhook really is built and public
+
+00:02:35.957 --> 00:02:38.038
+access awaits Meta's app review.
+
+00:02:38.354 --> 00:02:39.572
+Here's another example.
+
+00:02:39.629 --> 00:02:41.659
+Are there classes tomorrow in Lapu-Lapu City?
+
+00:02:41.767 --> 00:02:43.676
+Abiso doesn't find an official notice, so
+
+00:02:43.526 --> 00:02:44.917
+Abiso says exactly that.
+
+00:02:44.940 --> 00:02:46.072
+No hallucination.
+
+00:02:46.388 --> 00:02:48.745
+Under the hood, Cloud Scheduler wakes the
+
+00:02:48.595 --> 00:02:50.952
+Cloud Run every three hours, where Gemini
+
+00:02:50.802 --> 00:02:53.745
+3.8 flash on Vertex AI compiling each new
+
+00:02:53.595 --> 00:02:55.159
+post into a typed event.
+
+00:02:55.354 --> 00:02:57.986
+Type, barangay or the area affected, start,
+
+00:02:58.164 --> 00:02:59.297
+and status and source.
+
+00:02:59.491 --> 00:03:02.072
+A reconciler merges extensions and cancellations,
+
+00:03:02.078 --> 00:03:05.072
+and the events are stored in Firestore, with
+
+00:03:04.922 --> 00:03:06.331
+four doors reading one store.
+
+00:03:06.422 --> 00:03:09.055
+The webpage, the ask box agent, and a calendar
+
+00:03:08.905 --> 00:03:11.245
+per barangay, as well as the Messenger webhook.
+
+00:03:11.095 --> 00:03:13.935
+Other AI assistants can call it through MCP
+
+00:03:13.785 --> 00:03:14.641
+and A2A.
+
+00:03:14.802 --> 00:03:17.521
+One model call per notice, so questions cost
+
+00:03:17.371 --> 00:03:17.883
+nothing.
+
+00:03:18.198 --> 00:03:19.176
+Benchmark time.
+
+00:03:19.405 --> 00:03:23.004
+I hand-labeled 50 posts to see if the AI models
+
+00:03:22.854 --> 00:03:25.745
+could categorize it the same way I, a human
+
+00:03:25.595 --> 00:03:26.814
+living in Lapu-Lapu, would.
+
+00:03:26.922 --> 00:03:29.262
+Thankfully, Gemini got the type right every
+
+00:03:29.112 --> 00:03:29.659
+single time.
+
+00:03:29.974 --> 00:03:30.986
+But does it work?
+
+00:03:31.129 --> 00:03:33.400
+I sat down with five families who now use
+
+00:03:33.250 --> 00:03:35.366
+Abiso because one of their stories was how
+
+00:03:35.216 --> 00:03:38.176
+this father would start his day going through
+
+00:03:38.026 --> 00:03:39.917
+Facebook and scrolling through all the notices
+
+00:03:39.767 --> 00:03:42.641
+because the last time he missed one, all of
+
+00:03:42.491 --> 00:03:43.900
+the freezer food rotted.
+
+00:03:44.319 --> 00:03:46.417
+In fact, this has caught the attention of
+
+00:03:46.267 --> 00:03:48.952
+the mayor of the city who wants a demo, which
+
+00:03:48.802 --> 00:03:51.141
+I will attend to and hopefully get a memorandum
+
+00:03:50.991 --> 00:03:52.193
+of understanding from it.
+
+00:03:52.273 --> 00:03:53.423
+And that's Abiso.
+
+00:03:53.635 --> 00:03:56.095
+Official notices for Lapu-Lapu City compiled
+
+00:03:55.945 --> 00:03:58.302
+once and answered where people already are.
 
