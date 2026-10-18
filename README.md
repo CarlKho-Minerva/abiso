@@ -57,7 +57,7 @@ On a locked 50-post test split (`eval/SPLIT_LOCK`, SHA-256 `b4d56d8f68c7…`, lo
 | End within 1 h | 100% | 69% |
 | Status | 69% | 67% |
 
-Labels were drafted by Claude Haiku and checked by Claude Sonnet; a person spot-checked 20 of them and agreed with 18 (both differences were the `status` field). Status is the least reliable field for labels and models alike.
+The 50 test posts were labelled by hand by Carl, offline, before scoring (that labelling was not logged). Status is the least reliable field for labels and models alike.
 
 Batch run (2026-10-08): 167/167 posts compiled with 0 failures into 366 events, $0.476 of Gemini. First live refresh (2026-10-17): 47 posts captured from four issuers, 33 new ones compiled for $0.08. Cost study per 1,000 posts: `cost/REPORT.md`.
 
